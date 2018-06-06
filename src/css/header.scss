@@ -1,0 +1,64 @@
+header,
+header nav ul {
+  // display: flex;
+  // align-items:center ;
+}
+
+header {
+  background-color: #FFFFFF;
+  position:fixed;
+  width:100%;
+  top:0;
+}
+
+// mainmenu
+
+.custom-logo-link,
+.mobile_menu,
+.mobile_close {
+  display:block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.custom-logo-link {
+  float:left;
+  img {
+    height: 100%;
+    width: auto;
+    padding:10px 0;
+  }
+
+}
+
+.mobile_menu,
+.mobile_close {
+  height:32px;
+  float:right;
+
+  @media (min-width:$breakpoint-tablet-landscape) {
+    display:none;
+  }
+
+}
+
+.mobile_close {
+  opacity:0;
+}
+
+.hamburger{
+  fill:#696969;
+}
+
+.headmenu {
+  display:none;
+  @media (min-width:$breakpoint-tablet-landscape) {
+    display:block;
+  }
+}
+
+header nav a {
+  display:block;
+  padding:30px;
+}

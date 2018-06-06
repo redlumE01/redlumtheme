@@ -1,0 +1,51 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+:root {
+  --font-size: 100%;
+  --header-height:60px;
+  --breakpoint-tablet:768px;
+}
+
+// breakpoints
+
+$breakpoint-phone-small: 320px;
+$breakpoint-phone: 375px;
+$breakpoint-tablet-portrait: 770px;
+$breakpoint-tablet-landscape: 1026px;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:var(--font-size);
+  line-height:normal;
+}
+
+header,
+main,
+footer {
+  padding:0 1em;
+}
+
+header {
+  height:var(--header-height);
+}
+
+main {
+  margin-top:calc(var(--header-height) + 1em);
+}
+
+.nobullets {
+  list-style-type: none;
+  margin:0;
+}
+
+.clearfloat:after {
+    content:'';
+    display:block;
+    clear:both;
+}
