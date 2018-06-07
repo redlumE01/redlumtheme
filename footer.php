@@ -1,12 +1,5 @@
-<footer>
-  <ul>
-    <li>faking it</li>
-    <li>faking it</li>
-    <li>faking it</li>
-    <li>faking it</li>
-    <li>faking it</li>
-    <li>faking it</li>
-  </ul>
+<footer class="footer">
+  <ul><li>ola</li></ul>
 </footer>
 <?php wp_footer(); ?>
 </body>

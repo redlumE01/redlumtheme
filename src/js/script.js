@@ -21,8 +21,6 @@ function redlum_mob_menu() {
       mobclose_menu =  document.querySelector(".mobile_close"),
       mobsub =  document.querySelectorAll(".j-mob01-trigger");
 
-  console.log(mobsub);
-
   mob_button.addEventListener("click", open_menu);
   mobclose_menu.addEventListener("click", close_menu);
 

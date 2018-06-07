@@ -45,6 +45,9 @@ header {
 
 main {
   margin-top:calc(var(--header01-height) + 1em);
+  max-width: 1250px;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .nobullets {

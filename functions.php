@@ -1,6 +1,8 @@
 <?php
 
 // includes
+require "functionality/gutenberg.php";
+require "functionality/optionscreen.php";
 require "functionality/custom_walkers.php";
 
 // the bundle
