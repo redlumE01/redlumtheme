@@ -8,8 +8,16 @@ html {
 
 :root {
   --font-size: 100%;
-  --header-height:60px;
+  --header01-height:60px;
   --breakpoint-tablet:768px;
+}
+
+// mixins
+
+@mixin nobullets() {
+  list-style-type: none;
+  margin:0;
+  padding:0;
 }
 
 // breakpoints
@@ -32,11 +40,11 @@ footer {
 }
 
 header {
-  height:var(--header-height);
+  height:var(--header01-height);
 }
 
 main {
-  margin-top:calc(var(--header-height) + 1em);
+  margin-top:calc(var(--header01-height) + 1em);
 }
 
 .nobullets {

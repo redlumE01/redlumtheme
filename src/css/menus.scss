@@ -1,3 +1,49 @@
+.headmenu01 {
+  @media (max-width:$breakpoint-tablet-landscape) {
+    display:none;
+  }
+
+  display:flex;
+  justify-content: flex-end;
+
+  li {
+    &:hover {
+      background:#696969;
+
+      a {
+        color:#FFFFFF;
+      }
+    }
+  }
+
+  .sub-menu {
+    @include nobullets;
+    display:flex;
+    flex-column:column;
+    display:none;
+
+    li {
+      background:#696969;
+      position: relative;
+      a {
+        color:#FFFFFF;
+      }
+      &:hover {
+        background:lighten(#696969,5);
+      }
+    }
+
+  }
+
+  li:hover > .sub-menu {
+    display: block;
+    top:var(--header01-height);
+    position: absolute;
+  }
+
+
+}
+
 .mobmenu {
 
   background-color:#696969;
