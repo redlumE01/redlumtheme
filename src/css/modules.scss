@@ -1,0 +1,14 @@
+.cta {
+  background-color:#696969;
+  color:#FFF;
+  padding:1em;
+  display:inline-block;
+  margin:1em 0;
+
+  &:hover {
+    cursor: pointer;
+    background-color:lighten(#696969, 9);
+    color:#FFF;
+  }
+
+}

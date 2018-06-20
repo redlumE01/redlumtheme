@@ -46,6 +46,10 @@
 
 .mobmenu {
 
+  &::-webkit-scrollbar {
+      display: none;
+  }
+
   background-color:#696969;
 
   li {
@@ -63,8 +67,9 @@
   width:256px;
   left:-256px;
   position:fixed;
-  min-height:100%;
+  height:100%;
   top:0;
+  overflow-y:scroll;
 
   @media (min-width:$breakpoint-phone) {
     width:316px;
