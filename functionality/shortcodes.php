@@ -4,7 +4,9 @@
 
 function restApiPostLoader($atts) {?>
 
-  <div id="contenttarget"></div>
+  <div class="postFilter"></div>
+  <div id="contenttarget" class="postgrid"></div>
+  <div class="postLoad"></div>
 
   <?php
 
@@ -98,8 +100,7 @@ function restApiPostLoader($atts) {?>
               // Set reset as index
               filterSelect.selectedIndex = "0";
 
-              // Insert filter
-              document.getElementById("contenttarget").appendChild(catFilter);
+              document.getElementsByClassName("postFilter")[0].insertBefore(catFilter, document.getElementsByClassName("postFilter")[0].firstChild);
 
               // Filter selector
 
@@ -142,10 +143,10 @@ function restApiPostLoader($atts) {?>
 
         var xhttp = new XMLHttpRequest(),
             wpjsonurl = "<?php echo $wpjsonurl ?>",
-            wpjsonurl = wpjsonurl + '&page=' + pagenumber;
+            wpjsonurl = wpjsonurl + '&page=' + pagenumber + "&_embed";
 
         if (contenttarget.getAttribute("post-cat") > 0 ){
-          var wpjsonurl = site_url + "/wp-json/wp/v2/posts?categories="+contenttarget.getAttribute("post-cat")+"&per_page="+initPostAmount+"&page="+ pagenumber;
+          var wpjsonurl = site_url + "/wp-json/wp/v2/posts?categories="+contenttarget.getAttribute("post-cat")+"&per_page="+initPostAmount+"&page="+ pagenumber + "&_embed";
         };
 
         xhttp.open('GET', wpjsonurl, true);
@@ -156,6 +157,7 @@ function restApiPostLoader($atts) {?>
 
             var obj = JSON.parse(this.response);
             obj.forEach(function (objItem) {
+
               var blogItem = document.createElement("div"),
                   titleObj = document.createElement("h3"),
                   titleNode = document.createTextNode(objItem.title.rendered),
@@ -165,18 +167,42 @@ function restApiPostLoader($atts) {?>
                   linkTitle = document.createTextNode("Read more"),
                   att = document.createAttribute("href");
 
+                  // set img src
+
+                  imgObj = document.createElement("IMG");
+                  imgSrc = document.createAttribute("src");
+
+                  console.log(objItem);
+
+                  imgSrc.value = objItem._embedded['wp:featuredmedia'][0].media_details.sizes.postgrid_thumb.source_url;
+                  imgObj.setAttributeNode(imgSrc);
+
+                  // set attr href
                   att.value = objItem.link;
+
                   linkObj.setAttributeNode(att);
                   linkObj.appendChild(linkTitle);
 
                   titleObj.appendChild(titleNode);
                   excerptObj.appendChild(excerptNode);
 
+                  blogItem.appendChild(imgObj);
                   blogItem.appendChild(titleObj);
                   blogItem.appendChild(excerptObj);
                   blogItem.appendChild(linkObj);
 
                   blogItem.classList.add("postItem");
+
+                  // Wrap img in a
+
+                  var aWrapper = document.createElement('a'),
+                      wrapperAtt = document.createAttribute("href");
+
+                  wrapperAtt.value = objItem.link;
+                  aWrapper.setAttributeNode(wrapperAtt);
+
+                  imgObj.parentNode.insertBefore(aWrapper, imgObj);
+                  aWrapper.appendChild(imgObj);
 
                   document.getElementById("contenttarget").appendChild(blogItem);
 
@@ -203,7 +229,7 @@ function restApiPostLoader($atts) {?>
         linkObj.classList.add("cta");
         linkObj.classList.add("j-loadmore");
 
-        document.getElementById("contenttarget").appendChild(linkObj);
+        document.getElementsByClassName("postLoad")[0].insertBefore(linkObj, document.getElementsByClassName("postLoad")[0].firstChild);
 
         document.querySelector(".j-loadmore").addEventListener('click', function(e){
           e.preventDefault()

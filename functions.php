@@ -62,3 +62,12 @@ add_action('upload_mimes', 'redlum_custom_upload_mimes');
 
 // Add post thumbnails
 add_theme_support( 'post-thumbnails' );
+
+// Add image sizes
+
+function redlum_theme_images_setup() {
+    add_image_size( 'fullscreen-size', 1640, 923, array( 'center', 'center' ) );
+    add_image_size( 'postgrid_thumb', 390, 260, array( 'center', 'center' ) );
+}
+
+add_action( 'after_setup_theme', 'redlum_theme_images_setup' );
