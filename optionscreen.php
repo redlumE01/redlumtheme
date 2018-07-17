@@ -119,3 +119,5 @@ function redlum_options_page(  ) {
 	<?php
 
 }
+
+?>

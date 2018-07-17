@@ -5,6 +5,7 @@ require "functionality/gutenberg.php";
 require "functionality/optionscreen.php";
 require "functionality/shortcodes.php";
 require "functionality/custom_walkers.php";
+require "functionality/register_widgets.php";
 
 // the bundle
 function redlum_scripts_and_styling() {
@@ -58,3 +59,6 @@ function redlum_custom_upload_mimes($mimes = array()) {
 }
 
 add_action('upload_mimes', 'redlum_custom_upload_mimes');
+
+// Add post thumbnails
+add_theme_support( 'post-thumbnails' );
