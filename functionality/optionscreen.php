@@ -8,45 +8,45 @@ function redlum_add_admin_menu(  ) {
 
 function redlum_settings_init(  ) {
 
-	register_setting( 'pluginPage', 'redlum_settings' );
+	register_setting( 'redlum_settings', 'redlum_settings' );
 
 	add_settings_section(
-		'redlum_pluginPage_section',
+		'redlum_redlum_settings_section',
 		__( 'Your section description', 'redlum' ),
 		'redlum_settings_section_callback',
-		'pluginPage'
+		'redlum_settings'
 	);
 
 	add_settings_field(
 		'redlum_text_field_0',
 		__( 'Settings field description', 'redlum' ),
 		'redlum_text_field_0_render',
-		'pluginPage',
-		'redlum_pluginPage_section'
+		'redlum_settings',
+		'redlum_redlum_settings_section'
 	);
 
 	add_settings_field(
 		'redlum_checkbox_field_1',
 		__( 'Settings field description', 'redlum' ),
 		'redlum_checkbox_field_1_render',
-		'pluginPage',
-		'redlum_pluginPage_section'
+		'redlum_settings',
+		'redlum_redlum_settings_section'
 	);
 
 	add_settings_field(
 		'redlum_textarea_field_2',
 		__( 'Settings field description', 'redlum' ),
 		'redlum_textarea_field_2_render',
-		'pluginPage',
-		'redlum_pluginPage_section'
+		'redlum_settings',
+		'redlum_redlum_settings_section'
 	);
 
 	add_settings_field(
 		'redlum_select_field_3',
 		__( 'Settings field description', 'redlum' ),
 		'redlum_select_field_3_render',
-		'pluginPage',
-		'redlum_pluginPage_section'
+		'redlum_settings',
+		'redlum_redlum_settings_section'
 	);
 
 
@@ -110,8 +110,8 @@ function redlum_options_page(  ) {
 		<h2>Theme editor</h2>
 
 		<?php
-  		settings_fields( 'pluginPage' );
-  		do_settings_sections( 'pluginPage' );
+  		settings_fields( 'redlum_settings' );
+  		do_settings_sections( 'redlum_settings' );
   		submit_button();
 		?>
 

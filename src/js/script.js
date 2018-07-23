@@ -33,6 +33,7 @@ function redlum_mob_menu() {
       this.classList.toggle("fadeout");
       mobclose_menu.classList.toggle("fadein");
       mob_menu.classList.toggle("lslidein");
+      modalBox();
   };
 
   function close_menu() {
@@ -41,13 +42,29 @@ function redlum_mob_menu() {
       mobclose_menu.classList.toggle("fadein");
       mob_button.classList.toggle("fadeout");
       mob_button.classList.toggle("fadein");
+      modalBox();
   };
 
   function open_mob01sub() {
-    var mobsub = this.nextElementSibling
-
+    var mobsub = this.nextElementSibling;
     mobsub.classList.toggle("dropdown");
 
   };
 
+    function modalBox() {
+        var modaldiv = document.createElement("div"),
+            main =  document.querySelector(".site-main"),
+            modalBoxOpen = document.querySelector(".modal");
+
+        if (modalBoxOpen){
+            modalBoxOpen.classList.toggle("open");
+        }else{
+            modaldiv.setAttribute("class","modal");
+            main.appendChild(modaldiv);
+            modaldiv.classList.toggle("open");
+        }
+    }
+
 };
+
+

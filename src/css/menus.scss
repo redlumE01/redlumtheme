@@ -70,6 +70,7 @@
   height:100%;
   top:0;
   overflow-y:scroll;
+  z-index:10;
 
   @media (min-width:$breakpoint-phone) {
     width:316px;
