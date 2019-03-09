@@ -32,7 +32,7 @@ body {
   font-size:var(--font-size);
   line-height:normal;
 
-  &.logged-in {
+  &.admin-bar {
     header {
       top:32px;
     }

@@ -4,16 +4,53 @@ class Redlum_Customize {
 
     public static function register ( $wp_customize ) {
 
+        // test
+
+        $wp_customize->add_panel('color_panel',array(
+            'title'=>'Colors',
+            'description'=> 'This is panel Description',
+            'priority'=> 10,
+        ));
+
+        // Element colors
+
+        $wp_customize->add_section('element_color_options',array(
+            'title'=>'Site element colors',
+            'priority'=>1,
+            'panel'=>'color_panel',
+        ));
+
+        // Text colors
+
+        $wp_customize->add_section('text_color_options',array(
+            'title'=>'Text colors',
+            'priority'=>2,
+            'panel'=>'color_panel',
+        ));
+
+        // Link colors
+
+        $wp_customize->add_section('link_color_options',array(
+            'title'=>'Link element colors',
+            'priority'=>3,
+            'panel'=>'color_panel',
+        ));
+
+        // remove sections
+
+        $wp_customize->remove_section('custom_css');
+
         // Define color section
 
         $wp_customize->add_section( 'color_options',
             array(
-                'title'       => __( 'Template Colors', 'redlumtheme' ), //Visible title of section
-                'capability'  => 'edit_theme_options', //Capability needed to tweak
-                'description' => __('Allows you to customize certain template colors.', 'redlumtheme'), //Descriptive tooltip
+                'title'       => __( 'Template Colors (old)', 'redlumtheme' ),
+                'capability'  => 'edit_theme_options',
+                'description' => __('Allows you to customize certain template colors.', 'redlumtheme'),
                 'priority'   => 1,
             )
         );
+
 
         // Body color
 
@@ -22,7 +59,7 @@ class Redlum_Customize {
                 'default'    => '#FFFFFF',
                 'type'       => 'theme_mod',
                 'capability' => 'edit_theme_options',
-                'transport'  => 'postMessage',
+                'transport'  => 'refresh',
             )
         );
 
@@ -32,7 +69,7 @@ class Redlum_Customize {
             array(
                 'label'      => __( 'Background body color', 'redlumtheme' ),
                 'settings'   => 'body_color',
-                'section'    => 'color_options',
+                'section'    => 'element_color_options',
             )
         ) );
 
@@ -44,7 +81,7 @@ class Redlum_Customize {
                     'default'    => '#35291f',
                     'type'       => 'theme_mod',
                     'capability' => 'edit_theme_options',
-                    'transport'  => 'postMessage',
+                    'transport'  => 'refresh',
                 )
             );
 
@@ -54,7 +91,7 @@ class Redlum_Customize {
                 array(
                     'label'      => __( 'Header '.$i.' color', 'redlumtheme' ),
                     'settings'   => 'h'.$i.'color',
-                    'section'    => 'color_options',
+                    'section'    => 'text_color_options',
                 )
             ) );
         }
@@ -65,7 +102,7 @@ class Redlum_Customize {
                 'default'    => '#2BA6CB',
                 'type'       => 'theme_mod',
                 'capability' => 'edit_theme_options',
-                'transport'  => 'postMessage',
+                'transport'  => 'refresh',
             )
         );
 
@@ -76,7 +113,7 @@ class Redlum_Customize {
                 'label'      => __( 'Link color', 'redlumtheme' ),
                 'settings'   => 'link_textcolor',
                 'priority'   => 10,
-                'section'    => 'color_options',
+                'section'    => 'link_color_options',
             )
         ) );
 

@@ -25,7 +25,6 @@ function redlum_scripts_and_styling() {
 
 add_action( 'wp_enqueue_scripts', 'redlum_scripts_and_styling', 999 );
 
-
 // register logo
 
 function redlum_custom_logo_setup() {
