@@ -16,7 +16,7 @@
 
 </head>
 
-<header class="clearfloat header">
+<header class="clearfloat header ">
 	<?php if ( function_exists( 'redlum_custom_logo_setup' ) ) {the_custom_logo();} ?>
 
 	<?php
@@ -37,4 +37,4 @@
 	}
 ?>
 
-<body>
+<body <?php body_class(); ?>>

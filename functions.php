@@ -1,8 +1,7 @@
 <?php
 
 // includes
-require "functionality/gutenberg.php";
-require "functionality/optionscreen.php";
+require "functionality/theme-settings.php";
 require "functionality/shortcodes.php";
 require "functionality/custom_walkers.php";
 require "functionality/register_widgets.php";
@@ -24,7 +23,8 @@ function redlum_scripts_and_styling() {
         }
 }
 
-add_action( 'wp_enqueue_scripts', 'redlum_scripts_and_styling', 9999 );
+add_action( 'wp_enqueue_scripts', 'redlum_scripts_and_styling', 999 );
+
 
 // register logo
 
