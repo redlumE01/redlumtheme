@@ -7,173 +7,14 @@ class Redlum_Customize {
         // remove sections
         $wp_customize->remove_section('custom_css');
 
-
         // Panels
-
-        $wp_customize->add_panel('color_panel',array(
-            'title'=>'Colors',
-            'priority'=> 10,
-        ));
+        require "customized_panels.php";
 
         // Element Sections
+        require "customized_sections.php";
 
-        $wp_customize->add_section('element_color_options',array(
-            'title'=>'Site element colors',
-            'priority'=>1,
-            'panel'=>'color_panel',
-        ));
-
-        $wp_customize->add_section('text_color_options',array(
-            'title'=>'Text colors',
-            'priority'=>2,
-            'panel'=>'color_panel',
-        ));
-
-        $wp_customize->add_section('link_color_options',array(
-            'title'=>'Link element colors',
-            'priority'=>3,
-            'panel'=>'color_panel',
-        ));
-
-
-        $wp_customize->add_section( 'color_options',
-            array(
-                'title'       => __( 'Template Colors (old)', 'redlumtheme' ),
-                'capability'  => 'edit_theme_options',
-                'description' => __('Allows you to customize certain template colors.', 'redlumtheme'),
-                'priority'   => 1,
-            )
-        );
-
-
-        // Element Colors //
-
-        // Header ( Desktop ) color
-
-        $wp_customize->add_setting( 'header_desktop_color',
-            array(
-                'default'    => '#696969',
-                'type'       => 'theme_mod',
-                'capability' => 'edit_theme_options',
-                'transport'  => 'refresh',
-            )
-        );
-
-        $wp_customize->add_control( new WP_Customize_Color_Control(
-            $wp_customize,
-            'header_desktop_color',
-            array(
-                'label'      => __( 'Header color', 'redlumtheme' ),
-                'settings'   => 'header_desktop_color',
-                'section'    => 'element_color_options',
-            )
-        ));
-
-        $wp_customize->add_setting( 'header_submenu_color',
-            array(
-                'default'    => '#696969',
-                'type'       => 'theme_mod',
-                'capability' => 'edit_theme_options',
-                'transport'  => 'refresh',
-            )
-        );
-
-        $wp_customize->add_control( new WP_Customize_Color_Control(
-            $wp_customize,
-            'header_submenu_color',
-            array(
-                'label'      => __( 'Submenu color', 'redlumtheme' ),
-                'settings'   => 'header_submenu_color',
-                'section'    => 'element_color_options',
-            )
-        ));
-
-        $wp_customize->add_setting( 'header_desktop_link_color',
-            array(
-                'default'    => '#ffffff',
-                'type'       => 'theme_mod',
-                'capability' => 'edit_theme_options',
-                'transport'  => 'refresh',
-            )
-        );
-
-        $wp_customize->add_control( new WP_Customize_Color_Control(
-            $wp_customize,
-            'header_desktop_link_color',
-            array(
-                'label'      => __( 'Header Links color', 'redlumtheme' ),
-                'settings'   => 'header_desktop_link_color',
-                'section'    => 'element_color_options',
-            )
-        ));
-
-            // Body color
-
-            $wp_customize->add_setting( 'body_color',
-                array(
-                    'default'    => '#FFFFFF',
-                    'type'       => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'transport'  => 'refresh',
-                )
-            );
-
-            $wp_customize->add_control( new WP_Customize_Color_Control(
-                $wp_customize,
-                'body_color',
-                array(
-                    'label'      => __( 'Background body color', 'redlumtheme' ),
-                    'settings'   => 'body_color',
-                    'section'    => 'element_color_options',
-                )
-            ));
-
-
-        // End Element Colors //
-
-        // Header options
-
-        for( $i = 1; $i<7; $i++ ) {
-            $wp_customize->add_setting( 'h'.$i.'color',
-                array(
-                    'default'    => '#35291f',
-                    'type'       => 'theme_mod',
-                    'capability' => 'edit_theme_options',
-                    'transport'  => 'refresh',
-                )
-            );
-
-            $wp_customize->add_control( new WP_Customize_Color_Control(
-                $wp_customize,
-                'redlum_h"'.$i.'"color',
-                array(
-                    'label'      => __( 'Header '.$i.' color', 'redlumtheme' ),
-                    'settings'   => 'h'.$i.'color',
-                    'section'    => 'text_color_options',
-                )
-            ));
-        }
-
-
-        $wp_customize->add_setting( 'link_textcolor',
-            array(
-                'default'    => '#757575',
-                'type'       => 'theme_mod',
-                'capability' => 'edit_theme_options',
-                'transport'  => 'refresh',
-            )
-        );
-
-        $wp_customize->add_control( new WP_Customize_Color_Control(
-            $wp_customize,
-            'mytheme_link_textcolor',
-            array(
-                'label'      => __( 'Link color', 'redlumtheme' ),
-                'settings'   => 'link_textcolor',
-                'priority'   => 10,
-                'section'    => 'link_color_options',
-            )
-        ) );
+        // Controls & Settings
+        require "customized_setcontrols.php";
 
     }
 
@@ -183,10 +24,15 @@ class Redlum_Customize {
         <style type="text/css">
 
             <?php self::generate_css('.header', 'background-color', 'header_desktop_color'); ?>
+            <?php self::generate_css('.footer', 'background-color', 'footer_color'); ?>
 
             <?php self::generate_css('.sub-menu li', 'background-color', 'header_submenu_color'); ?>
 
             <?php self::generate_css('.header nav a', 'color', 'header_desktop_link_color'); ?>
+            <?php self::generate_css('.hamburger', 'fill', 'header_desktop_link_color'); ?>
+
+            <?php self::generate_css('.mobile_close', 'stroke', 'header_desktop_link_color'); ?>
+
 
             <?php self::generate_css('body', 'background-color', 'body_color'); ?>
             <?php self::generate_css('h1', 'color', 'h1color'); ?>

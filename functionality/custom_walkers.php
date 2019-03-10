@@ -86,7 +86,8 @@ public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 
     else
       $item_output .= '<a'. $attributes .'>';
     $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-    $item_output .= ( $args->has_children && 0 === $depth ) ? '</a><span class="j-mob01-trigger"></span>' : '</a>';
+    $item_output .= ( $args->has_children && 0 === $depth ) ? '</a><span class="j-mob01-trigger"><svg enable-background="new 0 0 100 100" id="Layer_1" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon fill="#FFFFFF" points="23.1,34.1 51.5,61.7 80,34.1 81.5,35 51.5,64.1 21.5,35 23.1,34.1 "/></svg>
+</span>' : '</a>';
     $item_output .= $args->after;
     $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
   }

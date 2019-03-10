@@ -5,7 +5,7 @@
 function restApiPostLoader($atts) {?>
 
   <div class="postFilter"></div>
-  <div id="contenttarget" class="postgrid"></div>
+  <div id="contenttarget" class="grid"></div>
   <div class="postLoad"></div>
 
   <?php

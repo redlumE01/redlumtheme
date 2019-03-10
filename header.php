@@ -31,7 +31,8 @@
 	?>
 
 <svg class="mobile_menu" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">><g><g id="Navicon" transform="translate(330.000000, 232.000000)"><polygon class="hamburger" id="Fill-19" points="-321.8,-219 -274.3,-219 -274.3,-212.7 -321.8,-212.7 "/><polygon class="hamburger" id="Fill-20" points="-321.8,-203.2 -274.3,-203.2 -274.3,-196.8 -321.8,-196.8 "/><polygon class="hamburger" id="Fill-21" points="-321.8,-187.3 -274.3,-187.3 -274.3,-181 -321.8,-181 "/></g></g></svg>
-<svg class='mobile_close' enable-background='new 0 0 100 100' viewBox='0 0 100 100' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><polygon class="" fill='#000000' points='77.6,21.1 49.6,49.2 21.5,21.1 19.6,23 47.6,51.1 19.6,79.2 21.5,81.1 49.6,53 77.6,81.1 79.6,79.2  51.5,51.1 79.6,23 '/></svg>
+<svg class='mobile_close' x="0px" y="0px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"><g><line fill="none" x1="2.929" y1="17.071" x2="17.071" y2="2.929"/></g><g><line fill="none" x1="2.929" y1="2.929" x2="17.071" y2="17.071"/></g></svg>
+
 </header>
 
 <?php

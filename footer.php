@@ -1,4 +1,4 @@
-<footer class="footer postgrid">
+<footer class="footer grid">
 
   <?php if ( is_active_sidebar( 'footer_col_one' ) ) : ?>
 

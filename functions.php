@@ -10,9 +10,6 @@ require "functionality/register_widgets.php";
 function redlum_scripts_and_styling() {
 
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
-
-          // wp_register_script('bundle', get_stylesheet_directory_uri() . '/dist/index.js', array('jquery'), filemtime(get_stylesheet_directory() . '/dist/index.js'), true);
-          // wp_enqueue_script('bundle');
             wp_enqueue_script(
                 'bundle',
                 get_stylesheet_directory_uri() . '/dist/index.js',

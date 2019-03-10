@@ -17,7 +17,7 @@ function redlum_widgets_init() {
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2>',
 		'after_title'   => '</h2>',
-	) );
+	));
 	register_sidebar( array(
 		'name'          => 'Footer column three',
 		'id'            => 'footer_col_three',
@@ -25,7 +25,7 @@ function redlum_widgets_init() {
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2>',
 		'after_title'   => '</h2>',
-	) );
+	));
 	register_sidebar( array(
 		'name'          => 'Footer column four',
 		'id'            => 'footer_col_four',
@@ -33,7 +33,7 @@ function redlum_widgets_init() {
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2>',
 		'after_title'   => '</h2>',
-	) );
+	));
 }
 
 add_action( 'widgets_init', 'redlum_widgets_init' );
