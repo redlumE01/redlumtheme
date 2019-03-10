@@ -7,13 +7,16 @@
   justify-content: flex-end;
 
   li {
-    &:hover {
-      background:#696969;
+    a {
+      padding:21px;
+    }
 
+     &:hover {
       a {
         color:#FFFFFF;
       }
     }
+
   }
 
   .sub-menu {
@@ -23,14 +26,17 @@
     display:none;
 
     li {
-      background:#696969;
       position: relative;
-      a {
-        color:#FFFFFF;
-      }
+
       &:hover {
-        background:lighten(#696969,5);
+        a {
+          background:rgba(black, 0.1);
+          color:#FFFFFF;
+        }
       }
+
+
+
     }
 
   }
@@ -40,8 +46,10 @@
     top:var(--header01-height);
     position: absolute;
   }
+}
 
-
+.headmenu01 > li:hover {
+  background:rgba(black, 0.1);
 }
 
 .mobmenu {

@@ -17,7 +17,12 @@
 </head>
 
 <header class="clearfloat header ">
-	<?php if ( function_exists( 'redlum_custom_logo_setup' ) ) {the_custom_logo();} ?>
+
+	<?php
+        if (function_exists( 'redlum_custom_logo_setup') && the_custom_logo() !== null ){
+            the_custom_logo();
+        }
+    ?>
 
 	<?php
 		if ( has_nav_menu( 'header-menu' ) ) {

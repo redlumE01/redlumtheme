@@ -1,14 +1,11 @@
 .header {
-  background-color: darken(#FFFFFF, 6);
   position:fixed;
   width:100%;
   top:0;
-  z-index:9;
+  z-index: 9;
 }
 
 // mainmenu
-
-.custom-logo-link,
 .mobile_menu,
 .mobile_close {
   display:block;
@@ -19,12 +16,16 @@
 
 .custom-logo-link {
   float:left;
+  display: block;
   img {
-    height: 100%;
+    max-height: 60px;
     width: auto;
     padding:10px 0;
   }
+}
 
+.place_holder_logo {
+  width:162px;
 }
 
 .mobile_menu,
@@ -48,12 +49,19 @@
 
 .headmenu {
   display:none;
+
+
   @media (min-width:$breakpoint-tablet-landscape) {
     display:block;
   }
+
+
 }
 
-header nav a {
+header nav li a  {
   display:block;
-  padding:22px;
+  &:hover{
+    cursor:pointer!important;
+  }
 }
+
