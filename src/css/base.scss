@@ -32,11 +32,14 @@ body {
   font-size:var(--font-size);
   line-height:normal;
 
+  background-color: $body-background-color;
+
   &.admin-bar {
     header {
       top:32px;
     }
   }
+
 }
 
 header,

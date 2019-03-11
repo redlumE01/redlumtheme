@@ -1,1 +1,8 @@
-.footer {}
+.footer {
+  background-color:$footer-background-color;
+
+  a {
+    color:$footer-links-color;
+  }
+
+}

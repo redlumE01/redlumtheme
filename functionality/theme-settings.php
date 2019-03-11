@@ -26,7 +26,7 @@ class Redlum_Customize {
             <?php self::generate_css('.header', 'background-color', 'header_desktop_color'); ?>
             <?php self::generate_css('.footer', 'background-color', 'footer_color'); ?>
 
-            <?php self::generate_css('.sub-menu li', 'background-color', 'header_submenu_color'); ?>
+            <?php self::generate_css('.headmenu01 .sub-menu li', 'background-color', 'header_submenu_color'); ?>
 
             <?php self::generate_css('.header nav a', 'color', 'header_desktop_link_color'); ?>
             <?php self::generate_css('.hamburger', 'fill', 'header_desktop_link_color'); ?>

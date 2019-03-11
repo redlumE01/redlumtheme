@@ -1,0 +1,24 @@
+// Globally used variables
+
+// Body
+$body-background-color: #FFFFFF;
+
+// Header
+$header-background-color: #695b4e;
+$header-links-color: #FFFFFF;
+
+// Submenu Header
+$submenu-background-color: #4b4037;
+$header-links-color: #FFFFFF;
+
+// Mobile menu
+$mobilemenu-background-color: $submenu-background-color;
+$mobilemenu-links-color: #FFFFFF;
+$mobilemenu-hamburger-color: #FFFFFF;
+
+$mobilemenu-lvl1-background-color: darken($submenu-background-color, 6);
+
+// Footer
+
+$footer-background-color: #988f76;
+$footer-links-color: #6c3108;

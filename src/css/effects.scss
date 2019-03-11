@@ -1,5 +1,11 @@
 // effects
 
+@mixin bgTransit {
+  -webkit-transition: background-color .2s ease-in-out;
+  -ms-transition: background-color .2s ease-in-out;
+  transition: background-color .2s ease-in-out;
+}
+
 .fadein {
   opacity: 1 !important;
   transition: opacity 0.4s;

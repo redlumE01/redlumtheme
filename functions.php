@@ -1,7 +1,7 @@
 <?php
 
 // includes
-require "functionality/theme-settings.php";
+//require "functionality/theme-settings.php";
 require "functionality/shortcodes.php";
 require "functionality/custom_walkers.php";
 require "functionality/register_widgets.php";

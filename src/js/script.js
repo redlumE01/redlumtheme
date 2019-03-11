@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function redlum_mob_menu() {
-  var mob_button = document.querySelector(".mobile_menu"),
+  let mob_button = document.querySelector(".mobile_menu"),
     mob_menu = document.querySelector(".mobmenu"),
     mobclose_menu = document.querySelector(".mobile_close"),
     mobsub = document.querySelectorAll(".j-mob01-trigger");
@@ -34,6 +34,7 @@ function redlum_mob_menu() {
     mobclose_menu.classList.toggle("fadein");
     mob_menu.classList.toggle("lslidein");
     modalBox();
+
   }
 
   function close_menu() {
@@ -46,12 +47,13 @@ function redlum_mob_menu() {
   }
 
   function open_mob01sub() {
-    var mobsub = this.nextElementSibling;
+    let mobsub = this.nextElementSibling;
+    this.classList.toggle("open");
     mobsub.classList.toggle("dropdown");
   }
 
   function modalBox() {
-    var modaldiv = document.createElement("div"),
+    let modaldiv = document.createElement("div"),
       main = document.querySelector(".site-main"),
       modalBoxOpen = document.querySelector(".modal");
 
@@ -61,6 +63,13 @@ function redlum_mob_menu() {
       modaldiv.setAttribute("class", "modal");
       main.appendChild(modaldiv);
       modaldiv.classList.toggle("open");
+
+      let modalBox = document.querySelectorAll(".modal")[0];
+
+      modalBox.addEventListener("click", close_menu);
+
+      
     }
+
   }
 }

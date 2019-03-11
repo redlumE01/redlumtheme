@@ -1,11 +1,12 @@
-.header {
+.header  {
+  background-color:$header-background-color;
   position:fixed;
   width:100%;
   top:0;
   z-index: 9;
 }
 
-// mainmenu
+// mainmenu§
 .mobile_menu,
 .mobile_close {
   display:block;
@@ -42,12 +43,13 @@
 .mobile_close {
   opacity:0;
   line {
+    stroke:$mobilemenu-hamburger-color;
     stroke-width: 2px;
   }
 }
 
 .hamburger{
-  fill:#696969;
+  fill:$mobilemenu-hamburger-color;
 }
 
 .headmenu {
@@ -62,6 +64,7 @@
 }
 
 header nav li a  {
+  color:$header-links-color;
   display:block;
   &:hover{
     cursor:pointer!important;

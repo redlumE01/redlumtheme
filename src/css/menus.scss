@@ -7,12 +7,14 @@
   justify-content: flex-end;
 
   li {
+
     a {
       padding:21px;
     }
 
      &:hover {
-      a {
+
+       a {
         color:#FFFFFF;
       }
     }
@@ -20,15 +22,20 @@
   }
 
   .sub-menu {
+
     @include nobullets;
     display:flex;
     flex-column:column;
     display:none;
 
     li {
+
+      background-color:$submenu-background-color;
+
       position: relative;
 
       &:hover {
+
         a {
           background:rgba(black, 0.1);
           color:#FFFFFF;
@@ -58,7 +65,7 @@
       display: none;
   }
 
-  background-color:#696969;
+  background-color:$mobilemenu-background-color;
 
   li {
     position:relative;
@@ -66,10 +73,10 @@
 
   a {
     display:block;
-    padding:8%;
+    padding:21px;
     border-bottom:1px solid #FFF;
-    font-size:1.2em;
-    color:#FFFFFF;
+    font-size:1em;
+    color:$mobilemenu-links-color;
   }
 
   width:256px;
@@ -94,6 +101,11 @@
     transition: max-height 0.15s ease-out;
     overflow: hidden;
     font-size:0.9em;
+
+    li {
+      background-color: $mobilemenu-lvl1-background-color;
+    }
+
   }
 
   @media (min-width:$breakpoint-tablet-landscape) {
@@ -102,25 +114,37 @@
 
   .menu-item-has-children span {
     position: absolute;
-    top:10px;
-    right:2%;
-    height:40px;
-    width:40px;
+    top: 2px;
+    right: 2%;
+    height: 20px;
+    width: 20px;
     display: block;
-    padding:8%;
+    padding: 8%;
 
     svg {
       position: absolute;
 
-      top: 8px;
-      left: 8px;
-      height: 40px;
+      top: 14px;
+      left: 18px;
+      height: 30px;
 
       transform:rotate(-90deg);
       -ms-transform:rotate(-90deg);
       -webkit-transform:rotate(-90deg);
+
+      -webkit-transition: -webkit-transform .2s ease-in-out;
+      -ms-transition: -ms-transform .2s ease-in-out;
+      transition: transform .2s ease-in-out;
+
     }
 
+    &.open {
+      svg {
+        transform:rotate(0deg);
+        -ms-transform:rotate(0deg);
+        -webkit-transform:rotate(0deg);
+      }
+    }
   }
 
-}
+ }
