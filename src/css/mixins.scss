@@ -1,24 +1,53 @@
-// Globally used variables
+// mixins
 
-// Body
-$body-background-color: #FFFFFF;
+@mixin nobullets() {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+}
 
-// Header
-$header-background-color: #695b4e;
-$header-links-color: #FFFFFF;
+// Column behaviour
 
-// Submenu Header
-$submenu-background-color: #4b4037;
-$header-links-color: #FFFFFF;
+//$breakpoint-phone-small: 320px;
+//$breakpoint-phone: 375px;
+//$breakpoint-tablet-portrait: 770px;
+//$breakpoint-tablet-landscape: 1026px;
 
-// Mobile menu
-$mobilemenu-background-color: $submenu-background-color;
-$mobilemenu-links-color: #FFFFFF;
-$mobilemenu-hamburger-color: #FFFFFF;
+//$breakpoint-phone-small: 320px;
+//$breakpoint-phone: 414px;
+//$breakpoint-tablet-portrait: 767px;
+//$breakpoint-tablet-landscape: 1026px;
 
-$mobilemenu-lvl1-background-color: darken($submenu-background-color, 6);
 
-// Footer
+@mixin fourth() {
 
-$footer-background-color: #988f76;
-$footer-links-color: #6c3108;
+  width:100%;
+
+  @media (min-width: $breakpoint-phone) {
+      width:50%;
+  }
+
+  @media (min-width: $breakpoint-tablet-portrait) {
+    width:25%;
+  }
+
+}
+
+@mixin third() {
+  width:100%;
+
+  @media (min-width: $breakpoint-phone) {
+    width:33%;
+  }
+}
+
+@mixin double() {
+  width:100%;
+    @media (min-width: $breakpoint-phone) {
+      width:50%;
+    }
+}
+
+@mixin single() {
+  width:100%;
+}

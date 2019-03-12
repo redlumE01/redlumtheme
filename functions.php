@@ -1,7 +1,10 @@
 <?php
 
 // includes
-//require "functionality/theme-settings.php";
+require "functionality/theme-options.php";
+
+require "functionality/theme-settings.php";
+
 require "functionality/shortcodes.php";
 require "functionality/custom_walkers.php";
 require "functionality/register_widgets.php";
@@ -37,6 +40,7 @@ function redlum_custom_logo_setup() {
 add_action( 'after_setup_theme', 'redlum_custom_logo_setup' );
 
 // register menus
+
 function redlum_register_menus() {
   register_nav_menus(
     array(
@@ -49,6 +53,7 @@ function redlum_register_menus() {
 add_action( 'init', 'redlum_register_menus' );
 
 // permit certain mimes types
+
 function redlum_custom_upload_mimes($mimes = array()) {
   $mimes['svg'] = 'image/svg+xml';
 	return $mimes;

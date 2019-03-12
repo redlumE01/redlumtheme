@@ -1,38 +1,19 @@
-<footer class="footer grid">
+<?php $option = new option(); ?>
 
-  <?php if ( is_active_sidebar( 'footer_col_one' ) ) : ?>
+<footer class="footer">
+    <div class="inner grid <?php echo $option::getWidgetCount(false,true); ?> ">
+    <?php
 
-  	<div class="primary-sidebar widget-area" role="complementary">
-  		<?php dynamic_sidebar( 'footer_col_one' ); ?>
-  	</div>
+        for( $i = 1; $i < $option::getWidgetCount(true,false) + 1; $i++ ) { ?>
+            <?php if ( is_active_sidebar( 'footer_col_'.$i.'' ) ) : ?>
+                <div class="primary-sidebar widget-area" role="complementary">
+                    <?php dynamic_sidebar( 'footer_col_'.$i.'' ); ?>
+                </div>
+            <?php endif; ?>
+        <?php }
 
-  <?php endif; ?>
-
-  <?php if ( is_active_sidebar( 'footer_col_two' ) ) : ?>
-
-    <div class="primary-sidebar widget-area" role="complementary">
-      <?php dynamic_sidebar( 'footer_col_two' ); ?>
+    ?>
     </div>
-
-  <?php endif; ?>
-
-  <?php if ( is_active_sidebar( 'footer_col_three' ) ) : ?>
-
-    <div class="primary-sidebar widget-area" role="complementary">
-      <?php dynamic_sidebar( 'footer_col_three' ); ?>
-    </div>
-
-  <?php endif; ?>
-
-  <?php if ( is_active_sidebar( 'footer_col_four' ) ) : ?>
-
-    <div class="primary-sidebar widget-area" role="complementary">
-      <?php dynamic_sidebar( 'footer_col_four' ); ?>
-
-    </div>
-
-  <?php endif; ?>
-
 </footer>
 
 <?php wp_footer(); ?>

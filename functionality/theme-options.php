@@ -1,85 +1,154 @@
 <?php
 
-class Redlum_Customize {
+add_action( 'admin_menu', 'redlum_starter_add_admin_menu' );
+add_action( 'admin_init', 'redlum_starter_settings_init' );
 
-    public static function register ( $wp_customize ) {
+// Options Class
 
-        // remove sections
-        $wp_customize->remove_section('custom_css');
+class option {
 
-        // Panels
-        require "customized_panels.php";
+    public function getWidgetCount($int,$words) {
 
-        // Element Sections
-        require "customized_sections.php";
+        $widgetCount = get_option( 'redlum_starter_settings' )['redlum_starter_select_widgets_count'];
 
-        // Controls & Settings
-        require "customized_setcontrols.php";
-
-    }
-
-    public static function header_output() {
-        ?>
-        <!--Customizer CSS-->
-        <style type="text/css">
-
-            <?php self::generate_css('body', 'background-color', 'body_color'); ?>
-            <?php self::generate_css('h1', 'color', 'h1color'); ?>
-            <?php self::generate_css('h2', 'color', 'h2color'); ?>
-            <?php self::generate_css('h3', 'color', 'h3color'); ?>
-            <?php self::generate_css('h4', 'color', 'h4color'); ?>
-            <?php self::generate_css('h5', 'color', 'h5color'); ?>
-            <?php self::generate_css('h6', 'color', 'h6color'); ?>
-            <?php self::generate_css('a', 'color', 'link_textcolor'); ?>
-
-            <?php self::generate_css('.header', 'background-color', 'header_desktop_color'); ?>
-            <?php self::generate_css('.footer', 'background-color', 'footer_color'); ?>
-
-            <?php self::generate_css('.headmenu01 .sub-menu li', 'background-color', 'header_submenu_color'); ?>
-            <?php self::generate_css('.header nav a', 'color', 'header_desktop_link_color'); ?>
-
-            <?php self::generate_css('.hamburger', 'fill', 'header_desktop_link_color'); ?>
-            <?php self::generate_css('.mobile_close', 'stroke', 'header_desktop_link_color'); ?>
-
-            <?php self::generate_css('.mobmenu', 'background-color', 'mobile_menu_color'); ?>
-            <?php self::generate_css('.mobmenu li ul li', 'background-color', 'mobile_menu_color_lvl1'); ?>
-
-        </style>
-        <!--/Customizer CSS-->
-        <?php
-    }
-
-    public static function live_preview() {
-        wp_enqueue_script(
-            'mytheme-themecustomizer', // Give the script a unique ID
-            get_template_directory_uri() . '/assets/js/theme-customizer.js', // Define the path to the JS file
-            array(  'jquery', 'customize-preview' ), // Define dependencies
-            '', // Define a version (optional)
-            true // Specify whether to put in footer (leave this true)
-        );
-    }
-
-    public static function generate_css( $selector, $style, $mod_name, $prefix='', $postfix='', $echo=true ) {
-        $return = '';
-        $mod = get_theme_mod($mod_name);
-        if ( ! empty( $mod ) ) {
-            $return = sprintf('%s { %s:%s; }', $selector, $style, $prefix.$mod.$postfix
-            );
-            if ( $echo ) {
-                echo $return;
-            }
+        if ($int === true) {
+            $widgetCount = intval(get_option('redlum_starter_settings' )['redlum_starter_select_widgets_count']);
         }
-        return $return;
+
+        if ($words === true) {
+            $string = array('one','two','three','four');
+            $widgetCount = $string[intval($widgetCount) - 1];
+        }
+
+        return $widgetCount;
     }
+
+    public function getWPCustomize() {
+
+        $wpCustomize = get_option( 'redlum_starter_settings' )['redlum_starter_disable_wpcustomizer'];
+
+        return $wpCustomize;
+    }
+
 }
 
-// Setup the Theme Customizer settings and controls...
-add_action( 'customize_register' , array( 'Redlum_Customize' , 'register' ) );
+function redlum_starter_add_admin_menu(  ) {
+    add_menu_page(
+        'Redlum Starter Settings',
+        'Redlum Starter Settings',
+        'manage_options',
+        'redlum_starter_settings',
+        'redlum_starter_options_page',
+        ''.get_template_directory_uri().'/functionality/img/template_icon.svg');
+    }
+function redlum_starter_settings_init(  ) {
 
-// Output custom CSS to live site
-add_action( 'wp_head' , array( 'Redlum_Customize' , 'header_output' ) );
+    register_setting( 'optionPage', 'redlum_starter_settings' );
 
-// Enqueue live preview javascript in Theme Customizer admin screen
-add_action( 'customize_preview_init' , array( 'Redlum_Customize' , 'live_preview' ) );
+    add_settings_section(
+        'redlum_starter_optionPage_section',
+        '',
+        'redlum_starter_settings_section_callback',
+        'optionPage'
+    );
+
+    add_settings_field(
+        'redlum_starter_select_widgets_count',
+        __( 'Number of footer widgets:', 'redlum' ),
+        'redlum_starter_select_widgets_count_render',
+        'optionPage',
+        'redlum_starter_optionPage_section'
+    );
+
+    add_settings_field(
+        'redlum_starter_disable_wpcustomizer',
+        __( 'Disable wordpress customizer', 'redlum' ),
+        'redlum_starter_disable_wp_custom_render',
+        'optionPage',
+        'redlum_starter_optionPage_section'
+    );
+
+//
+//    add_settings_field(
+//        'redlum_starter_checkbox_field_2',
+//        __( 'Settings field description', 'redlum' ),
+//        'redlum_starter_checkbox_field_2_render',
+//        'optionPage',
+//        'redlum_starter_optionPage_section'
+//    );
+//
+//    add_settings_field(
+//        'redlum_starter_radio_field_3',
+//        __( 'Settings field description', 'redlum' ),
+//        'redlum_starter_radio_field_3_render',
+//        'optionPage',
+//        'redlum_starter_optionPage_section'
+//    );
+}
+function redlum_starter_text_field_0_render(  ) {
+
+    $options = get_option( 'redlum_starter_settings' );
+    ?>
+    <input type='text' name='redlum_starter_settings[redlum_starter_text_field_0]' value='<?php echo $options['redlum_starter_text_field_0']; ?>'>
+    <?php
+
+}
+
+function redlum_starter_select_widgets_count_render() {
+
+    $options = get_option( 'redlum_starter_settings' );
+    ?>
+
+    <select name='redlum_starter_settings[redlum_starter_select_widgets_count]'>
+        <option value='1' <?php selected( $options['redlum_starter_select_widgets_count'], 1 ); ?>>1</option>
+        <option value='2' <?php selected( $options['redlum_starter_select_widgets_count'], 2 ); ?>>2</option>
+        <option value='3' <?php selected( $options['redlum_starter_select_widgets_count'], 3 ); ?>>3</option>
+        <option value='4' <?php selected( $options['redlum_starter_select_widgets_count'], 4 ); ?>>4</option>
+    </select>
+
+    <?php
+
+}
+function redlum_starter_disable_wp_custom_render() {
+
+    $options = get_option( 'redlum_starter_settings' );
+    ?>
+    <input type='checkbox' name='redlum_starter_settings[redlum_starter_disable_wpcustomizer]' <?php checked( $options['redlum_starter_disable_wpcustomizer'], 1 ); ?> value='1'>
+    <?php
+
+}
+
+function test_render(  ) {
+
+    $options = get_option( 'redlum_starter_settings' );
+    ?>
+    <input type='radio' name='redlum_starter_settings[redlum_starter_radio_field_3]' <?php checked( $options['redlum_starter_radio_field_3'], 1 ); ?> value='1'>
+    <?php
+
+}
 
 
+function redlum_starter_settings_section_callback(  ) {
+
+    echo __( 'Use the options below to fit your needs', 'redlum' );
+
+}
+
+
+function redlum_starter_options_page(  ) {
+
+    ?>
+    <form action='options.php' method='post'>
+
+        <h2>Redlum Starter Settings</h2>
+
+        <?php
+            settings_fields( 'optionPage' );
+            do_settings_sections( 'optionPage' );
+            submit_button();
+        ?>
+
+    </form>
+    <?php
+
+}

@@ -1,5 +1,37 @@
 .footer {
   background-color:$footer-background-color;
+  padding:4em 0;
+
+  .inner {
+    width:100%;
+    max-width:var(--innercontainer-width);
+    margin:0 auto;
+
+    &.one {
+     > div {
+       @include single;
+      }
+    }
+
+    &.two {
+     > div {
+       @include double;
+      }
+    }
+
+    &.three {
+      > div {
+        @include third;
+      }
+    }
+
+    &.four {
+     > div {
+       @include fourth;
+
+      }
+    }
+ }
 
   a {
     color:$footer-links-color;

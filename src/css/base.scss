@@ -10,21 +10,15 @@ html {
   --font-size: 100%;
   --header01-height:60px;
   --breakpoint-tablet:768px;
-}
-
-// mixins
-
-@mixin nobullets() {
-  list-style-type: none;
-  margin:0;
-  padding:0;
+  --innercontainer-width:1250px;
+  --footer-width:1250px;
 }
 
 // breakpoints
 
 $breakpoint-phone-small: 320px;
-$breakpoint-phone: 375px;
-$breakpoint-tablet-portrait: 770px;
+$breakpoint-phone: 414px;
+$breakpoint-tablet-portrait: 767px;
 $breakpoint-tablet-landscape: 1026px;
 
 body {
@@ -53,10 +47,8 @@ header {
 }
 
 main {
-  margin-top:calc(var(--header01-height) + 1em);
-  max-width: 1250px;
-  margin-left:auto;
-  margin-right:auto;
+  margin:calc(var(--header01-height) + 1em) auto 0 auto;
+  max-width:var(--innercontainer-width);
 }
 
 .nobullets {

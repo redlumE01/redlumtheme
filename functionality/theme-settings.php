@@ -23,17 +23,6 @@ class Redlum_Customize {
         <!--Customizer CSS-->
         <style type="text/css">
 
-            <?php self::generate_css('.header', 'background-color', 'header_desktop_color'); ?>
-            <?php self::generate_css('.footer', 'background-color', 'footer_color'); ?>
-
-            <?php self::generate_css('.headmenu01 .sub-menu li', 'background-color', 'header_submenu_color'); ?>
-
-            <?php self::generate_css('.header nav a', 'color', 'header_desktop_link_color'); ?>
-            <?php self::generate_css('.hamburger', 'fill', 'header_desktop_link_color'); ?>
-
-            <?php self::generate_css('.mobile_close', 'stroke', 'header_desktop_link_color'); ?>
-
-
             <?php self::generate_css('body', 'background-color', 'body_color'); ?>
             <?php self::generate_css('h1', 'color', 'h1color'); ?>
             <?php self::generate_css('h2', 'color', 'h2color'); ?>
@@ -42,6 +31,19 @@ class Redlum_Customize {
             <?php self::generate_css('h5', 'color', 'h5color'); ?>
             <?php self::generate_css('h6', 'color', 'h6color'); ?>
             <?php self::generate_css('a', 'color', 'link_textcolor'); ?>
+
+            <?php self::generate_css('.header', 'background-color', 'header_desktop_color'); ?>
+            <?php self::generate_css('.footer', 'background-color', 'footer_color'); ?>
+
+            <?php self::generate_css('.headmenu01 .sub-menu li', 'background-color', 'header_submenu_color'); ?>
+            <?php self::generate_css('.header nav a', 'color', 'header_desktop_link_color'); ?>
+
+            <?php self::generate_css('.hamburger', 'fill', 'header_desktop_link_color'); ?>
+            <?php self::generate_css('.mobile_close', 'stroke', 'header_desktop_link_color'); ?>
+
+            <?php self::generate_css('.mobmenu', 'background-color', 'mobile_menu_color'); ?>
+            <?php self::generate_css('.mobmenu li ul li', 'background-color', 'mobile_menu_color_lvl1'); ?>
+
         </style>
         <!--/Customizer CSS-->
         <?php
@@ -61,10 +63,7 @@ class Redlum_Customize {
         $return = '';
         $mod = get_theme_mod($mod_name);
         if ( ! empty( $mod ) ) {
-            $return = sprintf('%s { %s:%s; }',
-                $selector,
-                $style,
-                $prefix.$mod.$postfix
+            $return = sprintf('%s { %s:%s; }', $selector, $style, $prefix.$mod.$postfix
             );
             if ( $echo ) {
                 echo $return;
@@ -74,13 +73,12 @@ class Redlum_Customize {
     }
 }
 
-// Setup the Theme Customizer settings and controls...
-add_action( 'customize_register' , array( 'Redlum_Customize' , 'register' ) );
+$option = new option();
 
-// Output custom CSS to live site
-add_action( 'wp_head' , array( 'Redlum_Customize' , 'header_output' ) );
-
-// Enqueue live preview javascript in Theme Customizer admin screen
-add_action( 'customize_preview_init' , array( 'Redlum_Customize' , 'live_preview' ) );
+if ($option::getWPCustomize() !== "1") {
+    add_action( 'customize_register' , array( 'Redlum_Customize' , 'register' ) );
+    add_action( 'wp_head' , array( 'Redlum_Customize' , 'header_output' ) );
+    add_action( 'customize_preview_init' , array( 'Redlum_Customize' , 'live_preview' ) );
+}
 
 

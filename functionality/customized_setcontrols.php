@@ -13,7 +13,7 @@ $wp_customize->add_control( new WP_Customize_Color_Control(
     $wp_customize,
     'header_desktop_color',
     array(
-        'label'      => __( 'Header color', 'redlumtheme' ),
+        'label'      => __( 'Header background color', 'redlumtheme' ),
         'settings'   => 'header_desktop_color',
         'section'    => 'element_color_options',
     )
@@ -34,6 +34,44 @@ $wp_customize->add_control( new WP_Customize_Color_Control(
     array(
         'label'      => __( 'Submenu color', 'redlumtheme' ),
         'settings'   => 'header_submenu_color',
+        'section'    => 'element_color_options',
+    )
+));
+
+$wp_customize->add_setting( 'mobile_menu_color',
+    array(
+        'default'    => '#696969',
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'transport'  => 'refresh',
+    )
+);
+
+$wp_customize->add_control( new WP_Customize_Color_Control(
+    $wp_customize,
+    'mobile_menu_color',
+    array(
+        'label'      => __( 'Mobile menu background color', 'redlumtheme' ),
+        'settings'   => 'mobile_menu_color',
+        'section'    => 'element_color_options',
+    )
+));
+
+$wp_customize->add_setting( 'mobile_menu_color_lvl1',
+    array(
+        'default'    => '#696969',
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'transport'  => 'refresh',
+    )
+);
+
+$wp_customize->add_control( new WP_Customize_Color_Control(
+    $wp_customize,
+    'mobile_menu_color_lvl1',
+    array(
+        'label'      => __( 'Mobile menu background color submenu ', 'redlumtheme' ),
+        'settings'   => 'mobile_menu_color_lvl1',
         'section'    => 'element_color_options',
     )
 ));
