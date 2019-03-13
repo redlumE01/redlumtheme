@@ -135,6 +135,8 @@ $wp_customize->add_control( new WP_Customize_Color_Control(
     )
 ));
 
+// Header colors
+
 for( $i = 1; $i<7; $i++ ) {
     $wp_customize->add_setting( 'h'.$i.'color',
         array(
@@ -156,6 +158,68 @@ for( $i = 1; $i<7; $i++ ) {
     ));
 }
 
+// Paragraph color
+
+$wp_customize->add_setting( 'p_color',
+    array(
+        'default'    => '#35291f',
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'transport'  => 'refresh',
+    )
+);
+
+$wp_customize->add_control( new WP_Customize_Color_Control(
+    $wp_customize,
+    'p_color',
+    array(
+        'label'      => __( 'Paragraph color', 'redlumtheme' ),
+        'settings'   => 'p_color',
+        'section'    => 'text_color_options',
+    )
+));
+
+// Footer Header colors
+
+for( $i = 1; $i<7; $i++ ) {
+    $wp_customize->add_setting( 'footer_h'.$i.'color',
+        array(
+            'default'    => '#35291f',
+            'type'       => 'theme_mod',
+            'capability' => 'edit_theme_options',
+            'transport'  => 'refresh',
+        )
+    );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control(
+        $wp_customize,
+        'footer_redlum_h"'.$i.'"color',
+        array(
+            'label'      => __( 'Header '.$i.' color', 'redlumtheme' ),
+            'settings'   => 'footer_h'.$i.'color',
+            'section'    => 'footer_color_options',
+        )
+    ));
+}
+
+$wp_customize->add_setting( 'footer_p_color',
+    array(
+        'default'    => '#35291f',
+        'type'       => 'theme_mod',
+        'capability' => 'edit_theme_options',
+        'transport'  => 'refresh',
+    )
+);
+
+$wp_customize->add_control( new WP_Customize_Color_Control(
+    $wp_customize,
+    'footer_p_color',
+    array(
+        'label'      => __( 'Paragraph color', 'redlumtheme' ),
+        'settings'   => 'footer_p_color',
+        'section'    => 'footer_color_options',
+    )
+));
 
 $wp_customize->add_setting( 'link_textcolor',
     array(

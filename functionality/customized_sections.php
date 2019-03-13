@@ -12,12 +12,17 @@ $wp_customize->add_section('text_color_options',array(
     'panel'=>'color_panel',
 ));
 
+$wp_customize->add_section('footer_color_options',array(
+    'title'=>'Footer colors',
+    'priority'=>2,
+    'panel'=>'color_panel',
+));
+
 $wp_customize->add_section('link_color_options',array(
     'title'=>'Link element colors',
     'priority'=>3,
     'panel'=>'color_panel',
 ));
-
 
 $wp_customize->add_section( 'color_options',
     array(

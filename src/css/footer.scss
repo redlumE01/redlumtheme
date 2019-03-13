@@ -1,11 +1,16 @@
 .footer {
   background-color:$footer-background-color;
   padding:4em 0;
+  color:$footer-text-color;
 
   .inner {
     width:100%;
     max-width:var(--innercontainer-width);
     margin:0 auto;
+
+    div {
+      padding:1%;
+    }
 
     &.one {
      > div {

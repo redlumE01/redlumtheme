@@ -24,12 +24,24 @@ class Redlum_Customize {
         <style type="text/css">
 
             <?php self::generate_css('body', 'background-color', 'body_color'); ?>
+
             <?php self::generate_css('h1', 'color', 'h1color'); ?>
             <?php self::generate_css('h2', 'color', 'h2color'); ?>
             <?php self::generate_css('h3', 'color', 'h3color'); ?>
             <?php self::generate_css('h4', 'color', 'h4color'); ?>
             <?php self::generate_css('h5', 'color', 'h5color'); ?>
             <?php self::generate_css('h6', 'color', 'h6color'); ?>
+            <?php self::generate_css('p', 'color', 'p_color'); ?>
+
+            <?php self::generate_css('.footer h1', 'color', 'footer_h1color'); ?>
+            <?php self::generate_css('.footer h2', 'color', 'footer_h2color'); ?>
+            <?php self::generate_css('.footer h3', 'color', 'footer_h3color'); ?>
+            <?php self::generate_css('.footer h4', 'color', 'footer_h4color'); ?>
+            <?php self::generate_css('.footer h5', 'color', 'footer_h5color'); ?>
+            <?php self::generate_css('.footer h6', 'color', 'footer_h6color'); ?>
+
+            <?php self::generate_css('.footer p', 'color', 'footer_p_color'); ?>
+
             <?php self::generate_css('a', 'color', 'link_textcolor'); ?>
 
             <?php self::generate_css('.header', 'background-color', 'header_desktop_color'); ?>
