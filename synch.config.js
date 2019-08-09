@@ -3,6 +3,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = [{
     mode: 'production',
@@ -50,6 +51,11 @@ module.exports = [{
         warnings: false,
         compress: true,
         }
+        }),
+        new BrowserSyncPlugin({
+            host: process.env.NODE_ENV,
+            port: 3000,
+            proxy: process.env.NODE_ENV
         })
     ]
 },{

@@ -2,9 +2,7 @@
 
 // includes
 require "functionality/theme-options.php";
-
 require "functionality/theme-settings.php";
-
 require "functionality/shortcodes.php";
 require "functionality/custom_walkers.php";
 require "functionality/register_widgets.php";
@@ -64,7 +62,20 @@ add_action('upload_mimes', 'redlum_custom_upload_mimes');
 // Add post thumbnails
 add_theme_support( 'post-thumbnails' );
 
-// Add image sizes
+// Gutenberg full width
+add_theme_support( 'align-wide' );
+
+// Gutenberg editor styling
+
+function gutenberg_setup() {
+    // Add support for editor styles.
+    add_theme_support( 'editor-styles' );
+
+    // Enqueue editor styles.
+    add_editor_style( 'dist/gutenberg.css' );
+}
+
+add_action( 'after_setup_theme', 'gutenberg_setup' );
 
 function redlum_theme_images_setup() {
     add_image_size( 'fullscreen-size', 1640, 923, array( 'center', 'center' ) );

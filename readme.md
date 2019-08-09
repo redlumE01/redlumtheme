@@ -13,4 +13,4 @@ Second step:
 
 The following commands are used for compiling with webpack:
 watch:
-npm run watch
+npm run start

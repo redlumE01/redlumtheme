@@ -7,6 +7,7 @@ html {
 }
 
 :root {
+  --font-size-mobile: 80%;
   --font-size: 100%;
   --header01-height:60px;
   --breakpoint-tablet:768px;
@@ -22,11 +23,14 @@ $breakpoint-tablet-portrait: 767px;
 $breakpoint-tablet-landscape: 1026px;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size:var(--font-size);
+  font-family:$body-text-family;
+  font-size:var(--font-size-mobile);
   line-height:normal;
-
   background-color: $body-background-color;
+
+  @media (min-width:$breakpoint-phone) {
+    font-size:var(--font-size);
+  }
 
   &.admin-bar {
     header {
@@ -43,17 +47,16 @@ footer {
 }
 
 header {
-  height:var(--header01-height);
+  height:$header-height;
 }
 
 main {
-  margin:calc(var(--header01-height) + 1em) auto 0 auto;
+  margin:0 auto;
   max-width:var(--innercontainer-width);
 }
 
 .nobullets {
-  list-style-type: none;
-  margin:0;
+  @include nobullets;
 }
 
 .clearfloat:after {

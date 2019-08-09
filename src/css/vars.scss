@@ -1,26 +1,29 @@
 // Globally used variables
 
 // Body
-$body-background-color: #FFFFFF;
-$body-text-color: #4B4437;
+$body-background-color: #FFF;
+$body-text-family:Verdana, Geneva, sans-serif;
+$body-text-color: #000;
+
 
 // Header
-$header-background-color: #695b4e;
-$header-links-color: #FFFFFF;
+$header-height: auto;
+$header-background-color: #FFF;
+$header-link-color: #383838;
+$header-link-color-hover: darken($header-link-color, 40%);
 
 // Submenu Header
-$submenu-background-color: #4b4037;
-$header-links-color: #FFFFFF;
+$submenu-background-color: #eeeeee;
+$header-links-color: #000;
 
 // Mobile menu
 $mobilemenu-background-color: $submenu-background-color;
 $mobilemenu-links-color: #FFFFFF;
-$mobilemenu-hamburger-color: #FFFFFF;
-
+$mobilemenu-hamburger-color: #000;
 $mobilemenu-lvl1-background-color: darken($submenu-background-color, 6);
 
 // Footer
 
-$footer-background-color: #988f76;
-$footer-links-color: #6c3108;
-$footer-text-color: #4B4437;
+$footer-background-color: #eeeeee;
+$footer-links-color: #cfcfcf;
+$footer-text-color: $body-text-color;
