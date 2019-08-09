@@ -4,8 +4,7 @@
   "description": "renders a startertemplate for wordpress",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack --w",
-    "synch_start": "NODE_ENV=local.redlumtheme.erik webpack --config ./synch.config.js --w"
+    "start": "webpack --w"
   },
   "author": "Erik Mulder",
   "license": "ISC",
@@ -31,7 +30,8 @@
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {
-    "browser-sync": "^2.26.7"
+    "browser-sync": "^2.26.7",
+    "dotenv-flow": "^3.0.0"
   },
   "postcss": {
     "plugins": {

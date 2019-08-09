@@ -1,8 +1,29 @@
+require('dotenv-flow').config();
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
+let pluginTest = [
+    new UglifyJsPlugin({
+        uglifyOptions: {
+            ecma: 8,
+            warnings: false,
+            compress: true,
+        }})
+];
+
+if (process.env.DEV_URL){
+    const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+    pluginTest.push(
+        new BrowserSyncPlugin({
+            host: process.env.DEV_URL,
+            port: 3000,
+            proxy: process.env.DEV_URL
+        })
+    );
+}
 
 module.exports = [{
     mode: 'production',
@@ -41,17 +62,9 @@ module.exports = [{
                     }
                 }]
             }
-          ]
+        ]
     },
-    plugins: [
-        new UglifyJsPlugin({
-        uglifyOptions: {
-        ecma: 8,
-        warnings: false,
-        compress: true,
-        }
-        })
-    ]
+    plugins: pluginTest
 },{
     mode: 'production',
     entry: {

@@ -15,13 +15,6 @@ html {
   --footer-width:1250px;
 }
 
-// breakpoints
-
-$breakpoint-phone-small: 320px;
-$breakpoint-phone: 414px;
-$breakpoint-tablet-portrait: 767px;
-$breakpoint-tablet-landscape: 1026px;
-
 body {
   font-family:$body-text-family;
   font-size:var(--font-size-mobile);
