@@ -1,16 +1,18 @@
 // main menu
 
 .headmenu01 {
-  @media (max-width:$breakpoint-tablet-landscape) {
-    display:none;
+  display:none;
+
+  @media (min-width:$breakpoint-tablet-landscape) {
+    display:flex;
   }
 
-  display:flex;
   justify-content: center;
 
   li {
 
     a {
+      @include transition;
       padding:21px;
       color:$header-link-color;
 

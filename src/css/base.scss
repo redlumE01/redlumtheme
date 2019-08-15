@@ -3,16 +3,7 @@ html {
 }
 
 *, *:before, *:after {
-  box-sizing: inherit;
-}
-
-:root {
-  --font-size-mobile: 80%;
-  --font-size: 100%;
-  --header01-height:60px;
-  --breakpoint-tablet:768px;
-  --innercontainer-width:1250px;
-  --footer-width:1250px;
+  box-sizing: border-box;
 }
 
 body {
@@ -20,9 +11,10 @@ body {
   font-size:var(--font-size-mobile);
   line-height:normal;
   background-color: $body-background-color;
+  overflow-x:hidden;
 
-  @media (min-width:$breakpoint-phone) {
-    font-size:var(--font-size);
+  @media (min-width:$breakpoint-phone-portrait) {
+    font-size:$font-size-mobile;
   }
 
   &.admin-bar {
@@ -45,7 +37,8 @@ header {
 
 main {
   margin:0 auto;
-  max-width:var(--innercontainer-width);
+  max-width:$inner-container-width;
+  width:100%;
 }
 
 .nobullets {

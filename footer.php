@@ -1,7 +1,7 @@
 <?php $option = new option(); ?>
 
 <footer class="footer">
-    <div class="inner grid <?php echo $option::getWidgetCount(false,true); ?> ">
+    <div class="inner <?php echo $option::getWidgetCount(false,true); ?> ">
     <?php
 
         for( $i = 1; $i < $option::getWidgetCount(true,false) + 1; $i++ ) { ?>

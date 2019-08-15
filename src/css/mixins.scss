@@ -6,35 +6,6 @@
   padding:0;
 }
 
-@mixin fourth() {
-
-  width:100%;
-
-  @media (min-width: $breakpoint-phone) {
-      width:50%;
-  }
-
-  @media (min-width: $breakpoint-tablet-portrait) {
-    width:25%;
-  }
-
-}
-
-@mixin third() {
-  width:100%;
-
-  @media (min-width: $breakpoint-phone) {
-    width:33%;
-  }
-}
-
-@mixin double() {
-  width:100%;
-    @media (min-width: $breakpoint-phone) {
-      width:50%;
-    }
-}
-
-@mixin single() {
-  width:100%;
+@mixin transition() {
+  transition: all 0.2s ease-in-out;
 }

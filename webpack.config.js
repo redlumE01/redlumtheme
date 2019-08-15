@@ -27,7 +27,7 @@ if (process.env.DEV_URL){
 
 module.exports = [{
     mode: 'production',
-    entry: "./src/index.js",
+    entry: ["@babel/polyfill","./src/index.js"],
     output: {
         filename: "index.js",
         path: path.join(__dirname, "dist")

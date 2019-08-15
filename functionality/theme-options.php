@@ -34,12 +34,12 @@ class option {
 
 function redlum_starter_add_admin_menu(  ) {
     add_menu_page(
-        'Redlum Starter Settings',
-        'Redlum Starter Settings',
+        'Template settings',
+        'Template settings',
         'manage_options',
         'redlum_starter_settings',
-        'redlum_starter_options_page',
-        ''.get_template_directory_uri().'/functionality/img/template_icon.svg');
+        'redlum_starter_options_page'
+        );
     }
 function redlum_starter_settings_init(  ) {
 
@@ -140,7 +140,7 @@ function redlum_starter_options_page(  ) {
     ?>
     <form action='options.php' method='post'>
 
-        <h2>Redlum Starter Settings</h2>
+        <h2>Template settings</h2>
 
         <?php
             settings_fields( 'optionPage' );

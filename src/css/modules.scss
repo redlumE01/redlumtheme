@@ -1,24 +1,32 @@
 .grid {
- display: flex;
- flex-wrap:wrap;
+  display:grid;
+
+  &.standard {
+    grid-gap:$grid-gap;
+
+    @media (min-width:$breakpoint-phone-landscape){
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width:$breakpoint-tablet-portrait){
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+  }
 }
 
-.postItem {
-  flex-grow:3;
-  padding:0.5em;
-  width: 33%;
+.flex {
+  display:flex;
+}
 
-  @media (max-width: $breakpoint-tablet-portrait) {
-    width: 50%;
-  }
-
-  @media (max-width: $breakpoint-phone) {
+.listedPosts {
+  margin:$grid-gap 0;
+  div {
     width: 100%;
-  }
-
-  img {
-    width:100%;
-    display: block;
+    max-width:520px;
+    height: 260px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
   }
 }
 
@@ -34,5 +42,10 @@
     background-color:lighten(#696969, 9);
     color:#FFF;
   }
+}
 
+.navigation.pagination {
+  display:flex;
+  justify-content: center;
+  margin-bottom:1em;
 }

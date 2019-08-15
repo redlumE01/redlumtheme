@@ -79,7 +79,23 @@ add_action( 'after_setup_theme', 'gutenberg_setup' );
 
 function redlum_theme_images_setup() {
     add_image_size( 'fullscreen-size', 1640, 923, array( 'center', 'center' ) );
-    add_image_size( 'postgrid_thumb', 390, 260, array( 'center', 'center' ) );
+    add_image_size( 'postgrid_thumb', 520, 292, true  );
 }
 
 add_action( 'after_setup_theme', 'redlum_theme_images_setup' );
+
+
+// The excerpt length
+
+function custom_excerpt_length( $length ) {
+    return 20;
+}
+
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+// The excerpt ending
+
+function excerpt_more( $more ) {
+    return '...';
+}
+add_filter( 'excerpt_more', 'excerpt_more' );

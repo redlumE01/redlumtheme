@@ -3,3 +3,13 @@
 body, h1,h2,h3,h4,p,.editor-post-title__input {
  font-family: $body-text-family;
 }
+
+.wp-block,
+.edit-post-visual-editor .editor-post-title,
+.edit-post-visual-editor .editor-block-list__block {
+ max-width:$inner-container-width;
+}
+
+.wp-block[data-align=full]{
+ max-width: none;
+}

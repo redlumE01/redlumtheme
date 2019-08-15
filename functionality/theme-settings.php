@@ -1,6 +1,6 @@
 <?php
 
-class Redlum_Customize {
+class redlum_Customize {
 
     public static function register ( $wp_customize ) {
 
@@ -88,9 +88,9 @@ class Redlum_Customize {
 $option = new option();
 
 if ($option::getWPCustomize() !== "1") {
-    add_action( 'customize_register' , array( 'Redlum_Customize' , 'register' ) );
-    add_action( 'wp_head' , array( 'Redlum_Customize' , 'header_output' ) );
-    add_action( 'customize_preview_init' , array( 'Redlum_Customize' , 'live_preview' ) );
+    add_action( 'customize_register' , array( 'redlum_Customize' , 'register' ) );
+    add_action( 'wp_head' , array( 'redlum_Customize' , 'header_output' ) );
+    add_action( 'customize_preview_init' , array( 'redlum_Customize' , 'live_preview' ) );
 }
 
 

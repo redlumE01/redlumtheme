@@ -2,16 +2,31 @@
 
 // breakpoints
 
-$breakpoint-phone-small: 320px;
-$breakpoint-phone: 414px;
-$breakpoint-tablet-portrait: 767px;
-$breakpoint-tablet-landscape: 1026px;
+$breakpoint-phone-portrait-small: 320px;
+$breakpoint-phone-portrait: 414px;
+$breakpoint-phone-landscape: 568px;
+$breakpoint-tablet-portrait: 990px;
+$breakpoint-tablet-landscape: 1024px;
 
 // Body
 $body-background-color: #FFF;
 $body-text-family:Verdana, Geneva, sans-serif;
 $body-text-color: #000;
 
+// Root
+
+:root {
+  //--font-size-mobile: 80%;
+  //--font-size: 100%;
+  //--header01-height:60px;
+  //--innercontainer-width:1280px;
+}
+
+$font-size-mobile: 80%;
+$font-size: 100%;
+$header01-height: 60px;
+$inner-container-width: 1280px;
+$footer-width: auto;
 
 // Header
 $header-height: auto;
@@ -28,6 +43,10 @@ $mobilemenu-background-color: $submenu-background-color;
 $mobilemenu-links-color: #FFFFFF;
 $mobilemenu-hamburger-color: #000;
 $mobilemenu-lvl1-background-color: darken($submenu-background-color, 6);
+
+// Standard grid
+
+$grid-gap: 1em;
 
 // Footer
 

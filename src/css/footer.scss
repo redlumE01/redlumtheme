@@ -1,42 +1,48 @@
 .footer {
   background-color:$footer-background-color;
-  padding:4em 0;
+  padding:2em 0;
   color:$footer-text-color;
 
   .inner {
     width:100%;
-    max-width:var(--innercontainer-width);
+    max-width:$inner-container-width;
     margin:0 auto;
 
-    div {
-      padding:1%;
+    @media (min-width:$breakpoint-phone-landscape){
+      display: flex;
+      flex-wrap: wrap;
     }
 
-    &.one {
-     > div {
-       @include single;
+    & > div {
+     padding:0 1em;
+    }
+
+    &.two > div {
+      @media (min-width:$breakpoint-phone-landscape){
+        width:50%;
       }
     }
 
-    &.two {
-     > div {
-       @include double;
+    &.three > div {
+      @media (min-width:$breakpoint-phone-landscape){
+        width:50%;
+      }
+      @media (min-width:$breakpoint-tablet-portrait){
+        width:33%;
+      }
+
+    }
+
+    &.four > div {
+      @media (min-width:$breakpoint-phone-landscape){
+        width:50%;
+      }
+      @media (min-width:$breakpoint-tablet-portrait){
+        width:25%;
       }
     }
 
-    &.three {
-      > div {
-        @include third;
-      }
-    }
-
-    &.four {
-     > div {
-       @include fourth;
-
-      }
-    }
- }
+  }
 
   a {
     color:$footer-links-color;
