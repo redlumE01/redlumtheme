@@ -19,14 +19,13 @@ h6 {
 
 h1,h2,h3,h4,h5,h6 {
   margin:1rem 0;
-  color:#696969;
 }
 
 p {
   color:$body-text-color;
   line-height:24px;
-  font-size:1em;
-  margin-bottom:1em;
+  font-size:$font-size;
+  margin-bottom:$font-size;
 }
 
 a {

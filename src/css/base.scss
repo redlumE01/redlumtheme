@@ -8,7 +8,7 @@ html {
 
 body {
   font-family:$body-text-family;
-  font-size:var(--font-size-mobile);
+  font-size:$font-size;
   line-height:normal;
   background-color: $body-background-color;
   overflow-x:hidden;
