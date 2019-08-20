@@ -21,28 +21,6 @@ $header01-height: 60px;
 $inner-container-width: 1280px;
 $footer-width: auto;
 
-// Header
-$header-height: auto;
-$header-background-color: #FFF;
-$header-link-color: #383838;
-$header-link-color-hover: darken($header-link-color, 40%);
-
-// Submenu Header
-$submenu-background-color: #eeeeee;
-$header-links-color: #000;
-
-// Mobile menu
-$mobilemenu-background-color: $submenu-background-color;
-$mobilemenu-links-color: #FFFFFF;
-$mobilemenu-hamburger-color: #000;
-$mobilemenu-lvl1-background-color: darken($submenu-background-color, 6);
-
 // Standard grid
 
 $grid-gap: 1em;
-
-// Footer
-
-$footer-background-color: #eeeeee;
-$footer-links-color: #cfcfcf;
-$footer-text-color: $body-text-color;

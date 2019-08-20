@@ -1,5 +1,15 @@
 // main menu
 
+// Submenu Header
+$submenu-background-color: #eeeeee;
+$header-links-color: #000;
+
+// Mobile menu
+$mobilemenu-background-color: $submenu-background-color;
+$mobilemenu-links-color: #FFFFFF;
+$mobilemenu-hamburger-color: #000;
+$mobilemenu-lvl1-background-color: darken($submenu-background-color, 6);
+
 .headmenu01 {
   display:none;
 
@@ -27,9 +37,6 @@
   .sub-menu {
 
     @include nobullets;
-
-    display:flex;
-    flex-column:column;
     display:none;
 
     li {
@@ -133,13 +140,6 @@
   }
 
 }
-
-
-
-
-
-
-
 
 .headmenu {
   display:none;

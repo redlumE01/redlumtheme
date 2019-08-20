@@ -3,6 +3,7 @@
 // includes
 require "inc/options/theme-options.php";
 require "inc/nav_menus/menu-class.php";
+
 require "functionality/theme-settings.php";
 require "functionality/shortcodes.php";
 require "functionality/custom_walkers.php";

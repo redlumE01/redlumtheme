@@ -1,6 +1,13 @@
+// Header
+$header-height: auto;
+$header-background-color: #FFF;
+$header-link-color: #383838;
+$header-link-color-hover: darken($header-link-color, 40%);
+
 .header  {
   background-color:$header-background-color;
   width:100%;
+  height:$header-height;
 }
 
 // mainmenu

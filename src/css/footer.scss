@@ -1,3 +1,10 @@
+// Footer
+
+$footer-background-color: #eeeeee;
+$footer-links-color: #cfcfcf;
+$footer-text-color: $body-text-color;
+$footer-text-size:14px;
+
 .footer {
   background-color:$footer-background-color;
   padding:2em 0;
@@ -42,6 +49,10 @@
       }
     }
 
+  }
+
+  p {
+    font-size:$footer-text-size;
   }
 
   a {

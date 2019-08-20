@@ -12,14 +12,7 @@ function loadPosts(){
                         <?php
 
                             if ( has_post_thumbnail() ) {
-
-                                $image_id = get_post_thumbnail_id(get_the_id());
-                                $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', TRUE);
-                                $image_title = get_the_title($image_id);
-
-//                                echo "<figure><img src='".get_the_post_thumbnail_url('','postgrid_thumb')."' alt='".$image_alt."' title='".$image_title."'  /></figure>";
                                 echo "<div  style='background-image:url(".get_the_post_thumbnail_url('','postgrid_thumb').")'></div>";
-
                             }
 
                         ?>
