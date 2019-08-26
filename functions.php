@@ -100,4 +100,10 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 function excerpt_more( $more ) {
     return '...';
 }
+
 add_filter( 'excerpt_more', 'excerpt_more' );
+
+// Translation
+
+load_theme_textdomain('redlumtheme', get_template_directory() . '/languages');
+

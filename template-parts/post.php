@@ -25,6 +25,6 @@
     </span>
 
     <?php echo the_excerpt()?>
-    <a href="<?php echo get_the_permalink(); ?>" target="_self"><?php _e( 'Read more' ); ?></a>
+    <a href="<?php echo get_the_permalink(); ?>" target="_self"><?php _e( 'Read_more','redlumtheme' ); ?></a>
 
 </article>

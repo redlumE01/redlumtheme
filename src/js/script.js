@@ -1,7 +1,6 @@
 
-
 function activate(element){
-  element.classList.toggle("open");
+  element.classList.toggle( "open");
 }
 
 function initMobileMenu(selector){

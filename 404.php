@@ -1,15 +1,10 @@
-<?php wp_head(); ?>
-<?php  get_header(); ?>
-
-<!-- header("HTTP/1.1 301 Moved Permanently");
-header("Location: ".get_permalink(4665)); -->
+<?php get_header(); ?>
 
 <main id="main" class="site-main" role="main">
 	<article>
 		<h1>404 Not Found</h1>
+        <p><?php _e('404_error', 'redlumtheme'); ?></p>
 	</article>
 </main>
 
 <?php get_footer(); ?>
-
-<?php wp_footer(); ?>
