@@ -18,8 +18,9 @@
   display:flex;
 }
 
-.listedPosts {
+.postlist {
   margin:$grid-gap 0;
+
   div {
     width: 100%;
     max-width:520px;
@@ -28,6 +29,7 @@
     background-size:cover;
     background-position: center;
   }
+
 }
 
 .cta {

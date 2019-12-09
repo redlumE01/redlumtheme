@@ -1,7 +1,8 @@
 <?php $categories = get_the_category(); ?>
 <?php $tags = get_the_tags(); ?>
 
-<article>
+<article class="postlist__item">
+
     <?php
 
         if ( has_post_thumbnail() ) {
@@ -10,7 +11,9 @@
 
     ?>
 
-    <h2><?php the_title(); ?></h2>
+    <header>
+        <h2><?php the_title(); ?></h2>
+    </header>
 
     <span>
         <?php echo get_the_date()?>
@@ -25,6 +28,9 @@
     </span>
 
     <?php echo the_excerpt()?>
-    <a href="<?php echo get_the_permalink(); ?>" target="_self"><?php _e( 'Read_more','redlumtheme' ); ?></a>
+
+    <footer>
+        <a href="<?php echo get_the_permalink(); ?>" target="_self"><?php _e( 'Read_more','redlumtheme' ); ?></a>
+    </footer>
 
 </article>

@@ -18,16 +18,16 @@ body {
   }
 
   &.admin-bar {
-    header {
+    .header {
       top:32px;
     }
   }
 
 }
 
-header,
+.header,
 main,
-footer {
+.footer {
   padding:0 1em;
 }
 

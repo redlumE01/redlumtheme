@@ -3,7 +3,7 @@
 <main id="main" class="site-main" role="main">
     <?php if ( have_posts() ) : ?>
 
-        <section class="grid standard listedPosts">
+        <section class="grid standard postlist">
             <?php
                 while ( have_posts() ) : the_post();
                     get_template_part( 'template-parts/post' );

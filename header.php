@@ -14,7 +14,7 @@
 	<?php wp_head();?>
 </head>
 
-<header class="header ">
+<header class="header">
 
 	<?php
 

@@ -9,30 +9,30 @@
   "author": "Erik Mulder",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.7.3",
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "browser-sync-webpack-plugin": "^2.2.2",
     "css-loader": "^2.1.1",
     "file-loader": "^1.1.11",
     "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
-    "sass-loader": "^7.0.1",
+    "sass-loader": "^7.3.1",
     "style-loader": "^0.21.0",
-    "terser-webpack-plugin": "^1.4.1",
-    "uglifyjs-webpack-plugin": "^1.2.5",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^3.2.3"
+    "terser-webpack-plugin": "^1.4.2",
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.4",
+    "@babel/polyfill": "^7.7.0",
     "browser-sync": "^2.26.7",
-    "dotenv-flow": "^3.0.0"
+    "dotenv-flow": "^3.1.0"
   },
   "postcss": {
     "plugins": {
