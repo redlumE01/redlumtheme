@@ -1,154 +1,180 @@
 <?php
 
-add_action( 'admin_menu', 'redlum_starter_add_admin_menu' );
-add_action( 'admin_init', 'redlum_starter_settings_init' );
+require_once('optionBuilder.php');
+
+$pages = array(
+	'redlum_theme_options'	=> array(
+		'page_title'	=> __( 'Theme options', 'redlum_theme_settings' ),
+		'sections'		=> array(
+			'section-one'	=> array(
+				'title'			=> __( 'Options', 'redlum_theme_settings' ),
+				'fields'		=> array(
+
+					'select'		=> array(
+						'title'			=> __( 'Widget Count', 'redlum_theme_settings' ),
+						'text'			=> __( 'How many widgets?', 'redlum_theme_settings' ),
+						'type'			=> 'select',
+						'value'			=> 'option_1',
+						'choices'		=> array(
+							'option_1'	=> __( 'One', 'redlum_theme_settings' ),
+							'option_2'	=> __( 'Two', 'redlum_theme_settings' ),
+							'option_3'	=> __( 'Three', 'redlum_theme_settings' ),
+							'option_4'	=> __( 'Four', 'redlum_theme_settings' ),
+						),
+					),
+
+
+//					'default'		=> array(
+//						'title'			=> __( 'Default (text)', 'redlum_theme_settings' ),
+//						'text'			=> __( 'Text attributes are used as help text for most input types.' ),
+//					),
+//					'date'			=> array(
+//						'title'			=> __( 'Date', 'redlum_theme_settings' ),
+//						'type'			=> 'date',
+//						'value'			=> 'now',
+//					),
+//					'datetime'		=> array(
+//						'title'			=> __( 'Datetime-Local', 'redlum_theme_settings' ),
+//						'type'			=> 'datetime-local',
+//						'value'			=> 'now',
+//					),
+//					'datetime-local' => array(
+//						'title'			=> __( 'Datetime-Local', 'redlum_theme_settings' ),
+//						'type'			=> 'datetime-local',
+//						'value'			=> 'now',
+//					),
+//					'email'			=> array(
+//						'title'			=> __( 'Email', 'redlum_theme_settings' ),
+//						'type'			=> 'email',
+//						'placeholder'	=> 'email.address@domain.com',
+//					),
+//					'month'			=> array(
+//						'title'			=> __( 'Month', 'redlum_theme_settings' ),
+//						'type'			=> 'month',
+//						'value'			=> 'now',
+//					),
+//					'number'		=> array(
+//						'title'			=> __( 'Number', 'redlum_theme_settings' ),
+//						'type'			=> 'number',
+//						'value'			=> 42,
+//					),
+//					'password'		=> array(
+//						'title'			=> __( 'Password', 'redlum_theme_settings' ),
+//						'type'			=> 'password',
+//					),
+//					'search'		=> array(
+//						'title'			=> __( 'Search', 'redlum_theme_settings' ),
+//						'type'			=> 'search',
+//						'placeholder'	=> __( 'Keywords or terms&hellip;', 'redlum_theme_settings' ),
+//					),
+//					'tel'			=> array(
+//						'title'			=> __( 'Telephone', 'redlum_theme_settings' ),
+//						'type'			=> 'tel',
+//						'placeholder'	=> '(555) 555-5555',
+//					),
+//					'time'			=> array(
+//						'title'			=> __( 'Time', 'redlum_theme_settings' ),
+//						'type'			=> 'time',
+//						'value'			=> 'now',
+//					),
+//					'url'			=> array(
+//						'title'			=> __( 'URL', 'redlum_theme_settings' ),
+//						'type'			=> 'url',
+//						'placeholder'	=> 'http://jeremyhixon.com',
+//					),
+//					'week'			=> array(
+//						'title'			=> __( 'Week', 'redlum_theme_settings' ),
+//						'type'			=> 'week',
+//						'value'			=> 'now',
+//					),
+//					'checkbox'		=> array(
+//						'title'			=> __( 'Checkbox', 'redlum_theme_settings' ),
+//						'type'			=> 'checkbox',
+//						'text'			=> __( 'Text attributes are used as labels for checkboxes' ),
+//					),
+//					'color'			=> array(
+//						'title'			=> __( 'Color', 'redlum_theme_settings' ),
+//						'type'			=> 'color',
+//						'value'			=> '#cc0000',
+//					),
+//					'media'			=> array(
+//						'title'			=> __( 'Media', 'redlum_theme_settings' ),
+//						'type'			=> 'media',
+//						'value'			=> 'http://your-domain.com/wp-content/uploads/2016/01/sample.jpg',
+//					),
+//					'radio'			=> array(
+//						'title'			=> __( 'Radio', 'redlum_theme_settings' ),
+//						'type'			=> 'radio',
+//						'value'			=> 'option-two',
+//						'choices'		=> array(
+//							'option-one'	=> __( 'Option One', 'redlum_theme_settings' ),
+//							'option-two'	=> __( 'Option Two', 'redlum_theme_settings' ),
+//						),
+//					),
+//					'range'			=> array(
+//						'title'			=> __( 'Range', 'redlum_theme_settings' ),
+//						'type'			=> 'range',
+//						'value'			=> 75,
+//					),
+
+//					'select'		=> array(
+//						'title'			=> __( 'Select', 'redlum_theme_settings' ),
+//						'type'			=> 'select',
+//						'value'			=> 'option-two',
+//						'choices'		=> array(
+//							'option-one'	=> __( 'Option One', 'redlum_theme_settings' ),
+//							'option-two'	=> __( 'Option Two', 'redlum_theme_settings' ),
+//						),
+//					),
+
+//					'textarea'		=> array(
+//						'title'			=> __( 'Textarea', 'redlum_theme_settings' ),
+//						'type'			=> 'textarea',
+//						'value'			=> 'Pellentesque consectetur volutpat lectus, ac molestie lorem molestie nec. Vestibulum in auctor massa. Vivamus convallis nunc quis lacus maximus, non ultricies risus gravida. Praesent ac diam imperdiet, volutpat nisi sed, semper eros. In nec orci hendrerit, laoreet nunc eu, semper magna. Curabitur eu lorem a enim sodales consequat. Vestibulum eros nunc, congue sed blandit in, maximus eu tellus.',
+//					),
+//					'wp_editor'		=> array(
+//						'title'			=> __( 'WP Editor', 'redlum_theme_settings' ),
+//						'type'			=> 'wp_editor',
+//						'value'			=> 'Pellentesque consectetur volutpat lectus, ac molestie lorem molestie nec. Vestibulum in auctor massa. Vivamus convallis nunc quis lacus maximus, non ultricies risus gravida. Praesent ac diam imperdiet, volutpat nisi sed, semper eros. In nec orci hendrerit, laoreet nunc eu, semper magna. Curabitur eu lorem a enim sodales consequat. Vestibulum eros nunc, congue sed blandit in, maximus eu tellus.',
+//					),
+
+
+				),
+			),
+		),
+	),
+);
+
+$option_page = new themeOptionBuilder( $pages );
 
 // Options Class
 
 class option {
 
-    public function getWidgetCount($int,$words) {
+	function getOptions($option){
+		$templateOptions = get_option('redlum_theme_options');
+		return $templateOptions[$option];
+	}
 
-        $widgetCount = get_option( 'redlum_starter_settings' )['redlum_starter_select_widgets_count'];
+	public function getWidgetCount($int,$words) {
+		$widgetCount = str_replace('option_','',option::getOptions('widget_count'));
 
-        if ($int === true) {
-            $widgetCount = intval(get_option('redlum_starter_settings' )['redlum_starter_select_widgets_count']);
-        }
+		if ($int === true) {
+			$widgetCount = intval($widgetCount);
+		}
 
-        if ($words === true) {
-            $string = array('one','two','three','four');
-            $widgetCount = $string[intval($widgetCount) - 1];
-        }
+		if ($words === true) {
+			$string = array('one','two','three','four');
+			$widgetCount = $string[intval($widgetCount) - 1];
+		}
 
-        return $widgetCount;
-    }
+		return $widgetCount;
+	}
 
-    public function getWPCustomize() {
-
-        $wpCustomize = get_option( 'redlum_starter_settings' )['redlum_starter_disable_wpcustomizer'];
-
-        return $wpCustomize;
-    }
-
-}
-
-function redlum_starter_add_admin_menu(  ) {
-    add_menu_page(
-        'Template settings',
-        'Template settings',
-        'manage_options',
-        'redlum_starter_settings',
-        'redlum_starter_options_page'
-        );
-    }
-function redlum_starter_settings_init(  ) {
-
-    register_setting( 'optionPage', 'redlum_starter_settings' );
-
-    add_settings_section(
-        'redlum_starter_optionPage_section',
-        '',
-        'redlum_starter_settings_section_callback',
-        'optionPage'
-    );
-
-    add_settings_field(
-        'redlum_starter_select_widgets_count',
-        __( 'Number of footer widgets:', 'redlum' ),
-        'redlum_starter_select_widgets_count_render',
-        'optionPage',
-        'redlum_starter_optionPage_section'
-    );
-
-    add_settings_field(
-        'redlum_starter_disable_wpcustomizer',
-        __( 'Disable wordpress customizer', 'redlum' ),
-        'redlum_starter_disable_wp_custom_render',
-        'optionPage',
-        'redlum_starter_optionPage_section'
-    );
-
-//
-//    add_settings_field(
-//        'redlum_starter_checkbox_field_2',
-//        __( 'Settings field description', 'redlum' ),
-//        'redlum_starter_checkbox_field_2_render',
-//        'optionPage',
-//        'redlum_starter_optionPage_section'
-//    );
-//
-//    add_settings_field(
-//        'redlum_starter_radio_field_3',
-//        __( 'Settings field description', 'redlum' ),
-//        'redlum_starter_radio_field_3_render',
-//        'optionPage',
-//        'redlum_starter_optionPage_section'
-//    );
-}
-function redlum_starter_text_field_0_render(  ) {
-
-    $options = get_option( 'redlum_starter_settings' );
-    ?>
-    <input type='text' name='redlum_starter_settings[redlum_starter_text_field_0]' value='<?php echo $options['redlum_starter_text_field_0']; ?>'>
-    <?php
+	public function getWPCustomize() {
+		$wpCustomize = get_option( 'redlum_starter_settings' )['redlum_starter_disable_wpcustomizer'];
+		return $wpCustomize;
+	}
 
 }
 
-function redlum_starter_select_widgets_count_render() {
-
-    $options = get_option( 'redlum_starter_settings' );
-    ?>
-
-    <select name='redlum_starter_settings[redlum_starter_select_widgets_count]'>
-        <option value='1' <?php selected( $options['redlum_starter_select_widgets_count'], 1 ); ?>>1</option>
-        <option value='2' <?php selected( $options['redlum_starter_select_widgets_count'], 2 ); ?>>2</option>
-        <option value='3' <?php selected( $options['redlum_starter_select_widgets_count'], 3 ); ?>>3</option>
-        <option value='4' <?php selected( $options['redlum_starter_select_widgets_count'], 4 ); ?>>4</option>
-    </select>
-
-    <?php
-
-}
-function redlum_starter_disable_wp_custom_render() {
-
-    $options = get_option( 'redlum_starter_settings' );
-    ?>
-    <input type='checkbox' name='redlum_starter_settings[redlum_starter_disable_wpcustomizer]' <?php checked( $options['redlum_starter_disable_wpcustomizer'], 1 ); ?> value='1'>
-    <?php
-
-}
-
-function test_render(  ) {
-
-    $options = get_option( 'redlum_starter_settings' );
-    ?>
-    <input type='radio' name='redlum_starter_settings[redlum_starter_radio_field_3]' <?php checked( $options['redlum_starter_radio_field_3'], 1 ); ?> value='1'>
-    <?php
-
-}
-
-
-function redlum_starter_settings_section_callback(  ) {
-
-    echo __( 'Use the options below to fit your needs', 'redlum' );
-
-}
-
-
-function redlum_starter_options_page(  ) {
-
-    ?>
-    <form action='options.php' method='post'>
-
-        <h2>Template settings</h2>
-
-        <?php
-            settings_fields( 'optionPage' );
-            do_settings_sections( 'optionPage' );
-            submit_button();
-        ?>
-
-    </form>
-    <?php
-
-}

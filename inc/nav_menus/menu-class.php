@@ -2,8 +2,7 @@
 
 // Menu Class
 
-class Menu
-{
+class Menu {
 
     public static function renderWPmenu() {
 

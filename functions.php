@@ -3,8 +3,6 @@
 // includes
 require "inc/options/theme-options.php";
 require "inc/nav_menus/menu-class.php";
-
-require "functionality/theme-settings.php";
 require "functionality/shortcodes.php";
 require "functionality/custom_walkers.php";
 require "functionality/register_widgets.php";
@@ -23,10 +21,7 @@ function redlum_scripts_and_styling() {
         }
 }
 
-add_action( 'wp_enqueue_scripts', 'redlum_scripts_and_styling', 999 );
-
 // register logo
-
 function redlum_custom_logo_setup() {
     $defaults = array(
         'height'      => 100,
@@ -37,10 +32,9 @@ function redlum_custom_logo_setup() {
     );
     add_theme_support( 'custom-logo', $defaults );
 }
-add_action( 'after_setup_theme', 'redlum_custom_logo_setup' );
+
 
 // register menus
-
 function redlum_register_menus() {
   register_nav_menus(
     array(
@@ -50,16 +44,34 @@ function redlum_register_menus() {
   );
 }
 
-add_action( 'init', 'redlum_register_menus' );
-
-// permit certain mimes types
-
+// permit svg types
 function redlum_custom_upload_mimes($mimes = array()) {
-  $mimes['svg'] = 'image/svg+xml';
+	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
 }
 
+// Gutenberg editor styling
+function gutenberg_setup() {
+	// Add support for editor styles.
+	add_theme_support( 'editor-styles' );
+
+	// Enqueue editor styles.
+	add_editor_style( 'dist/gutenberg.css' );
+}
+
+// Theme images setup
+function redlum_theme_images_setup() {
+	add_image_size( 'fullscreen-size', 1640, 923, array( 'center', 'center' ) );
+	add_image_size( 'postgrid_thumb', 520, 292, true  );
+}
+
+// Add all actions
+add_action( 'wp_enqueue_scripts', 'redlum_scripts_and_styling', 999 );
+add_action( 'after_setup_theme', 'redlum_custom_logo_setup' );
+add_action( 'init', 'redlum_register_menus' );
 add_action('upload_mimes', 'redlum_custom_upload_mimes');
+add_action( 'after_setup_theme', 'gutenberg_setup' );
+add_action( 'after_setup_theme', 'redlum_theme_images_setup' );
 
 // Add post thumbnails
 add_theme_support( 'post-thumbnails' );
@@ -67,28 +79,7 @@ add_theme_support( 'post-thumbnails' );
 // Gutenberg full width
 add_theme_support( 'align-wide' );
 
-// Gutenberg editor styling
-
-function gutenberg_setup() {
-    // Add support for editor styles.
-    add_theme_support( 'editor-styles' );
-
-    // Enqueue editor styles.
-    add_editor_style( 'dist/gutenberg.css' );
-}
-
-add_action( 'after_setup_theme', 'gutenberg_setup' );
-
-function redlum_theme_images_setup() {
-    add_image_size( 'fullscreen-size', 1640, 923, array( 'center', 'center' ) );
-    add_image_size( 'postgrid_thumb', 520, 292, true  );
-}
-
-add_action( 'after_setup_theme', 'redlum_theme_images_setup' );
-
-
 // The excerpt length
-
 function custom_excerpt_length( $length ) {
     return 20;
 }
