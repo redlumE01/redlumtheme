@@ -9,7 +9,10 @@ $pages = array(
 			'section-one'	=> array(
 				'title'			=> __( 'Options', 'redlum_theme_settings' ),
 				'fields'		=> array(
-
+					'checkbox'		=> array(
+						'title'			=> __( 'Use Widgets', 'redlum_theme_settings' ),
+						'type'			=> 'checkbox'
+					),
 					'select'		=> array(
 						'title'			=> __( 'Widget Count', 'redlum_theme_settings' ),
 						'text'			=> __( 'How many widgets?', 'redlum_theme_settings' ),
@@ -156,16 +159,17 @@ class option {
 		return $templateOptions[$option];
 	}
 
-	public function getWidgetCount($int,$words) {
+	public function getWidgetCount($type) {
 		$widgetCount = str_replace('option_','',option::getOptions('widget_count'));
 
-		if ($int === true) {
-			$widgetCount = intval($widgetCount);
-		}
-
-		if ($words === true) {
-			$string = array('one','two','three','four');
-			$widgetCount = $string[intval($widgetCount) - 1];
+		switch ($type) {
+			case 'int':
+				$widgetCount = intval($widgetCount);
+				break;
+			case 'word':
+				$string = array('one','two','three','four');
+				$widgetCount = $string[intval($widgetCount) - 1];
+				break;
 		}
 
 		return $widgetCount;

@@ -69,7 +69,7 @@ function redlum_theme_images_setup() {
 add_action( 'wp_enqueue_scripts', 'redlum_scripts_and_styling', 999 );
 add_action( 'after_setup_theme', 'redlum_custom_logo_setup' );
 add_action( 'init', 'redlum_register_menus' );
-add_action('upload_mimes', 'redlum_custom_upload_mimes');
+add_action(	'upload_mimes', 'redlum_custom_upload_mimes');
 add_action( 'after_setup_theme', 'gutenberg_setup' );
 add_action( 'after_setup_theme', 'redlum_theme_images_setup' );
 
