@@ -13,7 +13,7 @@ body {
   background-color: $body-background-color;
   overflow-x:hidden;
 
-  @media (min-width:$breakpoint-phone-portrait) {
+  @media (max-width:$breakpoint-phone-portrait) {
     font-size:$font-size-mobile;
   }
 
