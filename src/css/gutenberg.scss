@@ -4,6 +4,10 @@ body, h1,h2,h3,h4,p,.editor-post-title__input {
  font-family: $body-text-family;
 }
 
+.block-editor-block-list__block[data-type="core/paragraph"] p {
+  line-height:normal;
+}
+
 .wp-block,
 .edit-post-visual-editor .editor-post-title,
 .edit-post-visual-editor .editor-block-list__block {
