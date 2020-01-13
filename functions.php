@@ -57,7 +57,36 @@ function gutenberg_setup() {
 
 	// Enqueue editor styles.
 	add_editor_style( 'dist/gutenberg.css' );
+
+	// Disable Custom Colors (color wheel)
+	//add_theme_support( 'disable-custom-colors' );
+
+	// Editor Color Palette
+	//	add_theme_support( 'editor-color-palette', array(
+	//		array(
+	//			'name'  => __( 'Blue', 'ea-starter' ),
+	//			'slug'  => 'blue',
+	//			'color'	=> '#59BACC',
+	//		),
+	//		array(
+	//			'name'  => __( 'Green', 'ea-starter' ),
+	//			'slug'  => 'green',
+	//			'color' => '#58AD69',
+	//		),
+	//		array(
+	//			'name'  => __( 'Orange', 'ea-starter' ),
+	//			'slug'  => 'orange',
+	//			'color' => '#FFBC49',
+	//		),
+	//		array(
+	//			'name'	=> __( 'Red', 'ea-starter' ),
+	//			'slug'	=> 'red',
+	//			'color'	=> '#E2574C',
+	//		)
+	//	));
+
 }
+
 
 // Theme images setup
 function redlum_theme_images_setup() {
