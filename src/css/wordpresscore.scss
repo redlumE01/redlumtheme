@@ -1,3 +1,5 @@
+@import 'vars';
+
 .alignnone {
     margin: 5px 20px 20px 0;
 }
@@ -116,4 +118,11 @@ a img.aligncenter {
   margin-right: -50vw;
   //padding-left:1em;
   //padding-right:1em;
+}
+
+.alignwide {
+  max-width:$inner-container-width;
+  margin:0 auto;
+  padding: 0 1em;
+  width: 100%;
 }
