@@ -1,7 +1,9 @@
 @import 'vars';
+@import 'blocks';
 
-body, h1,h2,h3,h4,p,.editor-post-title__input {
- font-family: $body-text-family;
+body * , .editor-post-title__input {
+  font-family: $body-text-family;
+  font-weight: normal;
 }
 
 .block-editor-block-list__block[data-type="core/paragraph"] p {
@@ -17,3 +19,4 @@ body, h1,h2,h3,h4,p,.editor-post-title__input {
 .wp-block[data-align=full]{
  max-width: none;
 }
+
