@@ -133,3 +133,23 @@ add_filter( 'excerpt_more', 'excerpt_more' );
 
 load_theme_textdomain('redlumtheme', get_template_directory() . '/languages');
 
+// Create image class for Lozad Lazy Loader
+
+function add_lozad_class($content) {
+	global $post;
+	$imgClassPattern ="/<img(.*?)class=\"(.*?)\"(.*?)>/i";
+	$imgClassReplace = '<img$1class="$2 lozad"$3>';
+	$content = preg_replace($imgClassPattern, $imgClassReplace, $content);
+	return $content;
+}
+
+add_filter('the_content', 'add_lozad_class');
+
+function change_lozad_src($content) {
+	global $post;
+	$content=preg_replace('~<img[^>]*\K(?=src=)~i','data-',$content);
+	$content=preg_replace('~<img[^>]*\K(?=srcset=)~i','data-',$content);
+	return $content;
+}
+
+add_filter('the_content', 'change_lozad_src');
