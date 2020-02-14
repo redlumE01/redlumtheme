@@ -16,12 +16,12 @@
 	<?php } ?>
 </footer>
 
-<?php wp_footer(); ?>
-
-<script>
+<script type="application/javascript">
 	const observer = lozad(); // lazy loads elements with default selector as '.lozad'
 	observer.observe();
 </script>
+
+<?php wp_footer(); ?>
 
 </body>
 </html>
