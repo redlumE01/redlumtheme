@@ -109,20 +109,15 @@ a img.aligncenter {
 }
 
 // gutenberg front end
-.alignfull {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  //padding-left:1em;
-  //padding-right:1em;
-}
 
-.alignwide {
-  max-width:$inner-container-width;
+.site-main article > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+
+  @media ( max-width: $inner-container-width ) {
+    padding:0 $body-inner-padding;
+  }
+
+  max-width: $inner-container-width;
+  width:100%;
   margin:0 auto;
-  padding: 0 1em;
-  width: 100%;
+
 }

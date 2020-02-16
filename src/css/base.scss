@@ -12,7 +12,6 @@ body {
   line-height:normal;
   background-color: $body-background-color;
   width: 100%;
-  overflow-x: hidden;
 
   @media (max-width:$breakpoint-phone-portrait) {
     font-size:$font-size-mobile;
@@ -27,15 +26,8 @@ body {
 }
 
 .header,
-main,
 .footer {
   padding:0 1em;
-}
-
-main {
-  margin:0 auto;
-  max-width:$inner-container-width;
-  width:100%;
 }
 
 .nobullets {
