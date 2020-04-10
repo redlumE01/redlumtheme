@@ -5,6 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
+// Asset path
+const ASSET_PATH = process.env.ASSET_PATH || '/wp-content/themes/redlumtheme/dist';
+
 let pluginTest = [
     // new UglifyJsPlugin({
     //     uglifyOptions: {
@@ -53,7 +56,7 @@ module.exports = [{
                 use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
             },
             {
-                test: /\.(png|jp(e*)g|svg)$/,
+                test: /\.(svg)$/,
                 use: [{
                     loader: 'url-loader',
                     options: {
@@ -61,7 +64,17 @@ module.exports = [{
                         name: 'images/[hash]-[name].[ext]'
                     }
                 }]
-            }
+            },
+          {
+            test: /\.(png|jp(e*)g)$/,
+            use: [{
+              loader: 'file-loader',
+              options: {
+                name: 'images/[hash].[ext]',
+                publicPath: ASSET_PATH,
+              }
+            }]
+          }
         ]
     },
     plugins: pluginTest
