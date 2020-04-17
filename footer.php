@@ -17,8 +17,13 @@
 </footer>
 
 <script type="application/javascript">
-	const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+	const observer = lozad('.lozad',{
+		rootMargin: '200px 0px'
+	}); // lazy loads elements with default selector as '.lozad'
+
 	observer.observe();
+
+
 </script>
 
 <?php wp_footer(); ?>
