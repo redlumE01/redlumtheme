@@ -1,32 +1,32 @@
-require('dotenv-flow').config();
 const path = require('path');
-//const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const BrowserSyncProxy = '';
+
+// Plugins init
+let plugins = [];
+
+// BrowserSync
+if (BrowserSyncProxy){
+  plugins = [
+    new BrowserSyncPlugin(
+      {
+        host: 'localhost',
+        port: 3000,
+        proxy: BrowserSyncProxy
+      },
+      {
+        reload: true
+      }
+    )
+  ];
+}
+
 // Asset path
 const ASSET_PATH = process.env.ASSET_PATH || '/wp-content/themes/redlumtheme/dist';
-
-let pluginTest = [
-    // new UglifyJsPlugin({
-    //     uglifyOptions: {
-    //         ecma: 8,
-    //         warnings: false,
-    //         compress: true,
-    //     }})
-];
-
-if (process.env.DEV_URL){
-    const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-    pluginTest.push(
-        new BrowserSyncPlugin({
-            host: process.env.DEV_URL,
-            port: 3000,
-            proxy: process.env.DEV_URL
-        })
-    );
-}
 
 module.exports = [{
     mode: 'production',
@@ -77,8 +77,9 @@ module.exports = [{
           }
         ]
     },
-    plugins: pluginTest
-},{
+    plugins: plugins
+  },
+  {
     mode: 'production',
     entry: {
         'gutenberg': './src/css/gutenberg.scss'
