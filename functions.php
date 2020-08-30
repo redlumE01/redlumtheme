@@ -7,6 +7,7 @@ require "functionality/shortcodes.php";
 require "functionality/custom_walkers.php";
 require "functionality/register_widgets.php";
 
+
 // the bundle
 function redlum_scripts_and_styling() {
 
@@ -52,6 +53,7 @@ function redlum_custom_upload_mimes($mimes = array()) {
 
 // Gutenberg editor styling
 function gutenberg_setup() {
+
 	// Add support for editor styles.
 	add_theme_support( 'editor-styles' );
 
@@ -60,6 +62,14 @@ function gutenberg_setup() {
 
 	// Disable Custom Colors (color wheel)
 	//add_theme_support( 'disable-custom-colors');
+
+
+	add_theme_support( 'disable-custom-font-sizes' );
+	add_theme_support( 'editor-font-sizes', array() );
+
+
+//	add_theme_support( 'disable-drop-cap' );
+//	add_theme_support( 'disable-custom-font-sizes' );
 
 	// Add Custom color palette + needed to created in stylesheet also
 
