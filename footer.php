@@ -1,4 +1,4 @@
-<?php	$option = new option(); ?>
+<?php $option = new option(); ?>
 
 <footer class="footer">
 	<?php if (option::getOptions('use_widgets') === 'on') {?>

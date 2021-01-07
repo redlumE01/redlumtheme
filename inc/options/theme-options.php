@@ -154,12 +154,12 @@ $option_page = new themeOptionBuilder( $pages );
 
 class option {
 
-	function getOptions($option){
+	public static function getOptions($option){
 		$templateOptions = get_option('redlum_theme_options');
 		return $templateOptions[$option];
 	}
 
-	public function getWidgetCount($type) {
+	public static function getWidgetCount($type) {
 		$widgetCount = str_replace('option_','',option::getOptions('widget_count'));
 
 		switch ($type) {
